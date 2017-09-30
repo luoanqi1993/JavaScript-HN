@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.red{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+				left: 411px;
+			}
+			.cyan{
+				height: 300px;
+				width: 300px;
+				background: cyan;
+				position: relative;
+				left: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="red" id="red"></div>
+		<div class="cyan" id="cyan"></div>
+		<button id="btn">red给我动起来</button>
+		<button id="btn1">cyan给我动起来</button>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementById("btn");
+		var btn1=document.getElementById("btn1");
+		var red=document.getElementById("red");
+		var cyan=document.getElementById("cyan");
+		btn.onclick=function(){
+			animate(red,20,0);
+		}
+		btn1.onclick=function(){
+			animate(cyan,20,0);
+		}
+		function animate(obj,speed,target){
+			clearInterval(obj.timer);//清除计时器
+			var speed = obj.offsetLeft<target?speed:-speed;//判断是往右走还是往左走,如果当前offsetLeft比目标值小，就让他加，加到目标值那么大为止，如果比目标值大，就让他减，减到目标值为止；
+			obj.timer=setInterval(function(){
+				var result=target-obj.offsetLeft;//目标值和当前对象的距离，如果相等，则为0，就是意味着到达了目的地
+				obj.style.left=obj.offsetLeft+speed+'px';
+				console.log(result)
+				if(Math.abs(result)<=speed){
+					clearInterval(obj.timer);
+				}
+			},500);
+		}
+	</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.mian{
+				height: 300px;
+				width: 500px;
+				margin: 50px auto;
+				position: relative;
+/*				border: 5px solid #000;*/
+				overflow: hidden;
+			}
+			ul{
+				list-style: none;
+				width: 2600px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			li{
+				height: 300px;
+				width: 500px;
+				line-height: 300px;
+				text-align: center;
+				font-size: 40px;
+				float: left;
+			}
+			.li1{
+				background: red;
+			}
+			.li2{
+				background: yellow;
+			}
+			.li3{
+				background: cyan;
+			}
+			.li4{
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mian">
+			<ul id="ul">
+				<li class="li1">1</li>
+				<li class="li2">2</li>
+				<li class="li3">3</li>
+				<li class="li4">4</li>
+				<li class="li1">1</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ul=document.getElementById("ul");
+		var timer=null;
+		var count=0;//当前显示的图片索引
+		var left=0;
+		setTimeout(fun,2000);
+		function fun(){
+			count--;
+			if(count<-4){
+				count=-1;
+				left=0;
+				ul.style.left='0px';
+			}
+			timer=setInterval(function(){
+				left--;
+				ul.style.left=left+'px';
+				console.log(ul.style.left);
+				if(left<=count*500){
+					clearInterval(timer);
+					setTimeout(fun,3000);
+				}
+			},1);
+			
+			
+		}
+	</script>
+</html>

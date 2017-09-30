@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				height: 100px;
+				width: 100px;
+				background: cyan;
+				border: 1px solid red;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var leader = 100,target=500;
+		var timer = null;
+		var flag=true;//flag为true，我们让他变大，为false，我们让他变小；
+		box.onclick = function() {
+			animate(flag);
+		}
+		function animate(){
+			clearInterval(timer);//操作之前，先清除再说；
+			flag?target=500:target=100;//如果为true，就把目标设为500，变大，如果为false,就把目标设为100，变小
+			timer = setInterval(function() {
+				leader=leader+(target-leader)/10;
+				box.style.width = leader + 'px';
+				box.style.height = leader+'px';
+				if(Math.round(leader) >= 500||Math.round(leader)<=100) {
+					clearInterval(timer);
+				}
+			}, 100);
+			flag?flag=false:flag=true;
+			console.log(flag)
+		}
+		
+	</script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: relative;
+        }
+        #btn{
+
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<!--<button id="btn">缓动</button>-->
+</body>
+<script>
+    //   点击按钮向右缓动
+
+//    var btn = document.getElementById("btn");
+//    var box = document.getElementById("box");
+//    var leader = 0, targer = 1000;
+//    var time;
+//    btn.onclick = function(){
+//        time = setInterval(fun,30);
+//    };
+//    function fun(){
+//        leader = leader + (targer - leader) / 10;
+//        box.style.left = leader + "px";
+//        if(leader>1000) {
+//            clearInterval(time);
+//        }
+//    }
+
+//点击div 放大缩小
+    var box = document.getElementById("box");
+    var leader = 100, targer = 500;
+    var time = null;
+    var flag = true;
+    box.onclick = function(){
+        show();
+    };
+    function show(){
+        clearInterval(time);
+        flag ? targer = 500:targer = 100;
+        time = setInterval(fun,10);
+        function fun(){
+            leader = leader + (targer - leader) / 10;
+            box.style.width = leader + "px";
+            box.style.height = leader + "px";
+            console.log(leader);
+            if(Math.round(leader)>=500||Math.round(leader)<=100){
+                clearInterval(time);
+            }
+        }
+        flag ? flag = false : flag = true;
+
+    }
+
+
+
+
+</script>
+</html>

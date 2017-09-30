@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				overflow: hidden;
+			}
+			.box{
+				width: 300px;
+				height: 500px;
+				border: 1px solid red;
+				margin: 100px auto;
+				position: relative;
+			}
+			.content{
+				height: auto;
+				width: 282px;
+				padding: 5px 18px 5px 5px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			.scroll{
+				width: 18px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: #eee;
+			}
+			.bar{
+				width: 100%;
+				height: 100px;
+				background: red;
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+
+			<div class="box" id="box">
+				<div class="content">
+					浏览器BOM对象
+					之前学习过dom对象，d是document，o,obj对象，m是model模型
+					那么，顾名思义，什么是BOM
+					B，代表浏览器，borwser；o代表对象，object，m代表模型，model
+					那么，bom就是浏览器对象模型
+					其中，有一个很重要的东西，就是window，window是一个浏览器的实例，在浏览器中，window有双重角色，它既是通过javascript访问浏览器窗口的一个对象，有事ECMAScript定制的Global（世界）；
+					Window对象的方法：
+					语法：window.alert(“hello ”);//带有一段小心和确认按钮的警告框
+					一般使用中，window对象中的window可以省略；
+					Window.confirm(“啦啦啦”)
+					显示一个带有指定消息和ok及取消按钮的对话框
+					如果用户点击确定按钮，则confirm()返回true,点击取消，则返回false
+					Window.prompt(‘text,defaultText’);
+					Text：对话框中显示的纯文本；
+					DefaultText：默认的输入文本
+					返回值：如果用户单机提示框的取消按钮，返回null；
+					如果单机确认按钮，返回输入字段当前显示的文本；
+					Window.open(pageURL,name，parameters);
+					功能：打开一个新的浏览器窗口或者查找一个已命名的窗口
+					参数：pageURL:子窗口路径；name：子窗口句柄；parameters：窗口参数
+					参数：newwindow(打开新窗口)；toolbar设置工具条，no为不要manubar菜单条scrollbars滚动条
+					Window.close（）：关闭浏览器窗口
+					//任何我们定义的全局变量，函数，对象，都会变成window对象的属性
+					location对象
+					location对象提供了与当前窗口中加载的文档有关的信息，还提供了一些导航的功能，它既是window对象的属性，也是document对象的属性
+					location对象常用属性：
+					location.href：返回当前加载页面的完整URL；
+					location.hash:返回URL中的hash，如果不包含，则返回空字符串（#后面跟的东西）；
+					location.host:返回服务器名称和端口号（如果有的话）
+					location.hostname:返回不带端口号的服务器名称
+					location.pathname:返回URL中的目录和文件名
+					location.port:返回URL中制定的端口号，如果没有返回空字符串
+					location.protocol:返回页面所使用的协议
+					location.search:返回UR的查询字符串，这一坨以问号开头
+					location.replace（url）:重定向URL：：他没有浏览记录
+					location.reload():重新加载当前显示的页面（就是刷新）；
+					location.reload()括号里面可以跟值，如果不写值，那么有缓存就从缓存重新加载，没有缓存就从服务器加载
+					如果location.reload(true),则不管你本地有没有缓存，都从服务器加载
+					
+					
+					
+					
+					
+					History
+					历史对象
+					History.back():回到历史记录的上一步
+					History.forward():回到历史记录的下一步
+					History.go(n)：回到历史记录的后N步
+					History.go(1)== History.forward()
+					History.go(-n):回到历史记录的前N步
+					History.go(-1)== History.back();
+					
+					Screen对象属性
+					语法：screen.availWidth
+					功能：返回可用的屏幕宽度
+					语法：screen.availHeight
+					功能：返回可用的屏幕高度
+					//返回的不是浏览器的宽度和高度，是屏幕的宽度和高度
+					
+					Navigator:用来识别浏览器名称、版本、引擎、以及操作系统等信息
+					API就是实现定义好的一个函数，调用他的接口方法（数据接口）；
+					访问API就是访问别人提供好的数据接口，以此来获取数据
+					
+					navigator.geolocation.getCurrentPosition(function(position){//获取坐标的方法函数
+							console.log(position.coords.latitude+'和'+position.coords.longitude);
+						});
+					获取经度纬度
+					Offset家族
+					Offset就是 ‘自己的’的意思；
+					目的，这玩意的作用：JS中一套方便的获取元素尺寸的办法，就是Offset家族
+					offsetWidth    offsetHeight
+					得到对象的宽度和高度（自己的啊，和其他人，其他元素没任何关系）；
+					div.style.width和Offsetwidth的区别是什么呢？
+					offsetWidth的值==width+border+padding
+					div{
+						width:220px;
+						border:1px solid red;
+						padding:10px;
+					}
+					div.style.width只能得到行内的数值，限制很大，不好使，并且，返回的值带有px的字符串
+					offsetWidth?=242
+					所以，在我们的js中，需要用到元素自身属性计算的时候，都用offset
+					
+					offsetLeft   offsetTop
+					返回元素自身距离上级（最近的带有定位）盒子的坐标（上面）的位置；
+					如果父级都没有定位，则以body为准
+					这里的上级指的是上一级，不仅仅指爸爸，可以使爷爷，曾爷爷，十八代祖宗、
+					OffsetLeft从上一级的padding开始算，上级的border不算
+					总结一下就是：盒子到定位的父盒子的边框到边框的距离；
+					如果需要计算图片距离父级的top，用个div把图片包起来，然后获取div距离上级的top值，防止出现误差；
+					
+					offsetParent
+					返回该对象最近的带有定位的父级（不一定是亲爸爸）；
+					Offset和style的区别，也是最重要的一点
+					Offset只是单纯的可读，style可读可写
+					Offset仅仅只是可以获取值，查看值，而不能修改值
+					如果要修改，请用style
+					
+					event事件对象
+					之前学过很多事件：onclick、onmouseover、……
+					你知道这些事件发生的过程中，浏览器产生了哪些数据吗？
+					div.onclick=function(event){执行语句}
+					event翻译过来，就是事件的意识
+					那么，event就是事件对象，它指向的事件，就是onclick
+					我们在触发DOM上的某一个事件的时候，都会产生event对象，但是支持的方式不同
+					比如，鼠标操作的时候，会添加鼠标位置的相关信息到事件对象中
+					还有要注意的一点，event有兼容问题
+					常规浏览器可以直接识别，比如你function(event)，常规浏览器可以直接读取event,IE不行
+					IE必须读取window.event
+				</div>
+				<div class="scroll">
+					<div class="bar"></div>
+				</div>
+			</div>
+	</body>
+	<script type="text/javascript">
+		var box=document.getElementById("box");//获取最外层大盒子
+		var content=box.children[0];//文字内容盒子
+		var scroll= box.children[1];//右边盒子
+		var bar=scroll.children[0];//小滑块
+		var num=0;//存放滑块的百分比
+		var n=0;//内容区域可以移动的数值；
+		/*console.log('消化快高度：'+bar.offsetTop);
+		console.log('内容高度：'+content.offsetHeight);*/
+		bar.onmousedown=function(e){
+			var e=e||window.e;
+			var t=e.clientY-this.offsetTop
+			//获取鼠标点击距离盒子的高度
+			document.onmousemove=function(e){
+				var e=e||window.e;
+				var barTop=e.clientY-t;
+				//获取小滑块的滑动top值，也就是小滑块距离父级盒子的top值
+				if(barTop<0){
+					barTop=0;
+				}else if(barTop>400){
+					barTop=400;
+				}
+				//限制小滑块
+				bar.style.top=barTop+'px';
+				num=barTop/400*100;
+				//求出小滑块滑动了百分之多少，比如滑动40px，就是滑动了百分之10；
+				window.getSelection?window.getSelection().removeAllRanges():document.selection.empty();//防止选中文字
+				n=content.offsetHeight-500;
+				//求出内容盒子最多可以滑动多少
+				content.style.top=-n*num/100+'px';
+				//小滑块滑动的百分比*内容盒子可以滑动的百分比就行了吧
+				//比如，小滑块最多滑动400px，内容盒子最多滑动2412px
+				//那么，小滑块滑动10%就是40px，那么这个时候，就让内容盒子也滑动百分之十
+				//那么就是2412*10%；
+			}
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+/*		//1首先要先计算红色滚动条的高度吧，内容越多，滚动条越短，反之亦然
+		//滚动条长度计算：容器的高度/内容的高度*容器的高度
+		//box是内容盒子的一半 那么红色盒子也要是box盒子的一半；
+		var barH=box.offsetHeight/content.offsetHeight*box.offsetHeight;
+		bar.style.height=barH+'px';
+		start(bar,content);
+		//接着，写拖拽事件
+		function start(obj,target){//第一个参数 拖动的对象，第二个参数 内容的盒子
+			obj.onmousedown=function(e){
+				var  e=e||window.e;
+				var t=e.clientY-this.offsetTop;//红色盒子距离父亲盒子的顶部距离；
+				var that=this//把bar对象给that
+				document.onmousemove=function(e){
+					var e=e||window.e;
+					var barT=e.clientY-t;//红色盒子移动的距离；
+					//内容盒子怎么移动？
+					//（内容盒子高度-大盒子高度）/（大盒子高度-红色盒子高度）*红色盒子移动的数值；
+					var contentTop=(target.offsetHeight-target.parentNode.offsetHeight)/(target.parentNode.offsetHeight-that.offsetHeight)*barT;
+					if(barT<0){
+						barT=0;
+					}else if(barT>target.parentNode.offsetHeight-that.offsetHeight){
+						//大于盒子的高度-红色盒子的高度
+						barT=target.parentNode.offsetHeight-that.offsetHeight
+						
+					}else{
+						target.style.top=-contentTop+'px'//往上走就是负值；
+					}
+					that.style.top=barT+'px';
+					window.getSelection?window.getSelection().removeAllRanges():document.selection.empty();
+				}
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+			}
+			
+		}*/
+		
+	</script>
+</html>
+<script>
+</script>

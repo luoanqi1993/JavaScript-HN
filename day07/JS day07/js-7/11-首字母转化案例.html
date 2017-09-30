@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首字母转化 案例</title>
+</head>
+<body>
+	<script>
+	//
+
+		 //var str = 'we are family'
+// 		 var str = 'how are you'
+// 		 console.log(str)
+// 		//需求 每个单词首字母转化为大写
+// 		//如果是个字符串，你能获取到每一个单词吗？？？？，怎么拿到每个单词（分割转化为数组）
+// 		var arr = str.split(' ')
+// 		console.log(arr)
+// 		//创建一个新数组，保存每个单词
+// 		var arr1 = []
+// 		for(var i =0;i<arr.length;i++){
+// //新数组的每一项 = 每个单词的首字母（转换大小）+拼接（截取每个单词的从第二个字母到末尾）
+// 			 arr1[i] = arr[i][0].toUpperCase()+arr[i].slice(1);
+
+// 		}
+// 		console.log(arr1.join(' '))
+			
+		
+		var str = 'what are you doing'
+		//先分割成数组
+		var arr = str.split(" ")
+		//创建一个空数组，保存、
+		var arr1 = []
+		//for循环遍历每个单词
+		for(var i = 0;i<arr.length;i++){
+
+			//首字母 ，转为大写
+			var frist = arr[i].charAt(0).toUpperCase();
+			//除去首字母以外的单词，用截取的方式
+			var second = arr[i].substr(1)
+			//拼接
+			arr1[i] = frist + second;
+		}
+		console.log(arr1.join(' '))
+
+
+	</script>
+</body>
+</html>

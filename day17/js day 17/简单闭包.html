@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				position: relative;
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div><div></div><div></div><div></div><div></div>
+	</body>
+	<script type="text/javascript">
+		var divs=document.getElementsByTagName('div');
+		for(var i=0;i<divs.length;i++){
+			
+			(function(j){
+				divs[j].onclick=function(){
+					console.log(j);
+				}
+			})(i)
+		}
+		
+//		function b(x){
+//			alert(x)
+//		}
+//		b(10);
+//		(function a(x){
+//			alert(x)
+//		}(15))
+	</script>
+</html>

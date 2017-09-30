@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				height: 340px;
+				width: 790px;
+				margin: 20px auto;
+				position: relative;
+				/*overflow: hidden;*/
+			}
+			
+			ul {
+				list-style: none;
+				width: 5000px;
+				position: absolute;
+				left: 0px;
+			}
+			
+			li {
+				float: left;
+			}
+			
+			button {
+				position: absolute;
+				top: 48%;
+				width: 40px;
+				border: none;
+			}
+			
+			.b2 {
+				left: 0px;
+			}
+			
+			.b1 {
+				right: 0px;
+			}
+			
+			ol {
+				position: absolute;
+				left: 40%;
+				bottom: 5%;
+				width: 300px;
+				list-style: none;
+			}
+			
+			ol li {
+				height: 10px;
+				width: 10px;
+				border-radius: 50%;
+				background: rgba(0, 0, 0, 0.4);
+				margin: 20px;
+			}
+			
+			.lis {
+				background: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<ul>
+				<li><img src="img/1.jpg" /></li>
+				<li><img src="img/2.jpg" /></li>
+				<li><img src="img/3.jpg" /></li>
+				<li><img src="img/4.jpg" /></li>
+				<li><img src="img/1.jpg" /></li>
+			</ul>
+			<ol></ol>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box=document.getElementById("box");
+		var ul = document.getElementsByTagName('ul')[0];
+		var ol = document.getElementsByTagName('ol')[0];
+		var timer=null;
+		var count=0;//当前显示的图片索引
+		var leader=0,target;//轮播动画的初始值
+		for(var i = 1; i < ul.children.length; i++) {//循环添加小圆点
+			var li = document.createElement('li');
+			ol.appendChild(li);
+		}
+		var lis = ol.children;//获取所有小圆点
+		lis[0].setAttribute('class', 'lis');//给第一个小圆点添加样式
+		t=setTimeout(fun,1000);//开始我们的轮播，每秒一次
+		function fun(){
+			count++;//没执行一次，索引值自增1，到达播放下一张图片的效果
+			if(count>4){//当图片播放到最后一张的时候，让他left瞬间归零，从头开始轮播
+				count=1;
+				leader=0;
+				ul.style.left='0px';
+			}
+			target=count*-790;//设置目标值，为索引值*每张图片的宽度
+			timer=setInterval(function(){
+				leader=leader+(target-leader)/10;
+				//设置缓动动画
+				ul.style.left=leader+'px';
+				if(Math.round(leader)<=count*-790){
+					clearInterval(timer);//当一张图片动画解释，将计时器清除
+					t=setTimeout(fun,1000);//递归调用setTimeout，达到重复轮播的效果
+				}
+			},1);
+			for(var l = 0; l < lis.length; l++) {//循环遍历每一个小圆点
+				lis[l].removeAttribute('class');//把所有的小圆点样式清除掉
+			}
+			//然后再个当前索引的小圆点添加样式
+			//但是我们的图片比小圆点多一个，所以当索引值超出小圆点的长度是，给第一个添加样式，否则，正常给索引的小圆点添加样式
+			count>3?lis[0].setAttribute('class', 'lis'):lis[count].setAttribute('class', 'lis');;
+		}
+	</script>
+
+</html>

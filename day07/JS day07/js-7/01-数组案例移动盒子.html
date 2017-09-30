@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 700px;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid red;
+			position: relative;
+		}
+		.box>div{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			transition: all 1s;
+		}
+		.div1{
+			background: red;
+			top: 200px;
+			left: 300px;
+		}
+		.div2{
+			background: black;
+			top: 300px;
+			left: 200px;
+		}
+		.div3{
+			background: green;
+			top: 400px;
+			left: 300px;
+		}
+		.div4{
+			background: gray;
+			top: 300px;
+			left: 400px;
+		}
+
+
+	</style>
+
+
+
+</head>
+<body>
+<script>
+	window.onload = function (){
+		//获取元素
+		var box = document.getElementsByClassName('box')
+		//h5新增的获取元素方法
+		var divs = document.querySelectorAll(".box>div")
+		var btn = document.getElementsByTagName('input')
+		/*用二维数组保存left top值*/
+		var arr = [[200,300],[300,200],[400,300],[300,400]]
+
+
+		/*绑定事件*/
+		btn[0].onclick = function(){
+			//思路
+		//pop尾部删除，返回删除的元素
+		//头部添加
+			arr.unshift(arr.pop())
+			for(var i =0;i<arr.length;i++){
+				divs[i].style.top = arr[i][0] + "px";
+				divs[i].style.left = arr[i][1] + "px";
+			}
+		}
+		btn[1].onclick = function(){
+			//思路
+		//shift（）头部删除返回删除项
+		//push尾部添加
+			arr.push(arr.shift())
+			for(var i =0;i<arr.length;i++){
+				divs[i].style.top = arr[i][0] + "px";
+				divs[i].style.left = arr[i][1] + "px";
+			}
+		}
+	}
+
+
+</script>
+
+
+
+<div class="box">
+	<div class="div1"></div>
+	<div class="div2"></div>
+	<div class="div3"></div>
+	<div class="div4"></div>
+	<input type="button" value="向左">
+	<input type="button" value="向右">
+</div>
+
+
+
+</body>
+</html>

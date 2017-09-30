@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 80px;
+				width: 80px;
+				background: red;
+				position: fixed;
+				right: 100px;
+				bottom: 100px;
+				cursor: pointer;
+				display: none;
+			}
+			.box:hover{
+				background: cyan;
+			}
+			#main{
+				height: 3000px;
+			}
+		</style>
+		<script type="text/javascript" src="../固定导航栏/scroll.js" ></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				window.onscroll=function(){
+					if(scroll().top>100){
+						$('box').style.display='block';
+					}
+				}
+				$('box').onclick=function(){
+					window.scrollTo(0,0);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box" id="box"></div>
+		<div id="main">
+			
+		</div>
+	</body>
+</html>

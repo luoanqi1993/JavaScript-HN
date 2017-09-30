@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        #box{
+            margin: 100px 200px;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            float: left;
+            width: 60px;
+            height: 30px;
+            line-height: 26px;
+            text-align: center;
+            border: 1px solid silver;
+            cursor: pointer;
+        }
+        .bg{
+            background: #efefef;
+        }
+        ul:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .div div{
+            width: 400px;
+            height: 200px;
+            border: 1px solid silver;
+            display: none;
+            background-color: #efefef;
+        }
+        .div .book{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="bg">One</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>four</li>
+        <li>five</li>
+    </ul>
+    <div id="bom" class="div">
+        <div class="book">第一：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate dolore eligendi est fugit illo,
+            in minus nihil porro praesentium quibusdam sapiente velit. A eius illum minus tempora! Itaque, maiores.</div>
+        <div>第二：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate dolore eligendi est fugit illo,
+            in minus nihil porro praesentium quibusdam sapiente velit. A eius illum minus tempora! Itaque, maiores.</div>
+        <div>第三：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate dolore eligendi est fugit illo,
+            in minus nihil porro praesentium quibusdam sapiente velit. A eius illum minus tempora! Itaque, maiores.</div>
+        <div>第四：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate dolore eligendi est fugit illo,
+            in minus nihil porro praesentium quibusdam sapiente velit. A eius illum minus tempora! Itaque, maiores.</div>
+        <div>第五：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate dolore eligendi est fugit illo,
+            in minus nihil porro praesentium quibusdam sapiente velit. A eius illum minus tempora! Itaque, maiores.</div>
+    </div>
+
+</div>
+</body>
+<script>
+    window.onload= function(){
+        var lis = document.getElementsByTagName("li");
+        var divs = document.getElementById("bom").getElementsByTagName("div");
+        for(var i=0;i<lis.length;i++){
+            lis[i].index = i;  //给每一个按钮添加上一个属性，添加索引属性；
+            lis[i].onclick = function(){
+                for(var j=0;j<lis.length;j++){
+                    lis[j].className = "";
+                    divs[j].className = "";
+                }
+                this.className = "bg";
+               // console.log(this.index);//输出当前点击的按钮的索引
+               // console.log(divs[this.index]);
+                divs[this.index].className = "book";
+            };
+
+        }
+    }
+</script>
+</html>

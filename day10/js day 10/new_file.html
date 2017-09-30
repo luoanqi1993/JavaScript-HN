@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div">
+			<ul>
+				<li class="li1"></li>
+				<li class="li1"></li>
+				<li class="li1"></li>
+				<li class="li2"></li>
+				<li class="li2"></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var lis=document.getElementsByClassName('li1');
+		function getClass(classname){
+			if(document.getElementsByClassName){//浏览器如果支持该语法，则返回true，如果不支持，则返回false，并提示不支持
+				return document.getElementsByClassName(classname);
+			}
+			var arr=[];
+			var dom=document.getElementsByTagName('*');//获取页面所有元素
+			//通过循环遍历，取出所有元素，dom[i]，判断，dom[i].classname==我们想要获取的classname，那么存进数组，最后，返回数组
+			for(var i=0;i<dom.length;i++){
+				if(dom[i].className==classname){
+					arr.push(dom[i]);
+				}
+			}
+			return arr;
+		}
+		console.log(getClass('li1'));
+	</script>
+</html>

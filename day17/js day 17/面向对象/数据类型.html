@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//声明一个对象
+			//var obj=new Object();实例化一个对象；
+			//但是，我们不推崇这个方式声明对象
+//			var arr=new Array();
+//			var arr=[]====new Array();
+			var obj={};//叫做字面量式声明对象
+			obj.name='薛欢欢';
+			obj.age=38;
+			obj.showName=function(){
+				alert('我叫薛欢欢');
+			}
+			obj.showAge=function(){
+				alert('我今年38');
+			}
+			console.log(obj.name)//调用对象属性
+			obj.showName();//调用对象方法；
+			
+			//这里是一个对象，一个类，那我们页面上有多个对象，是不是要用到包，把所有对象封装起来
+		</script>
+	</body>
+</html>

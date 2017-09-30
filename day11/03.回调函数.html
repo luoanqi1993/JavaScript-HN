@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        button{
+            width: 100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">变色</button>
+<button id="btn2">不变色</button>
+</body>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var body = document.getElementsByTagName("body")[0];
+    function a(t,t2){
+        alert(t);
+        if(!t2){
+            b();
+        }else{
+            c();
+        }
+    }
+    function b (){
+        body.style.background = "pink";
+    }
+    function c (){
+        body.style.background = "";
+    }
+
+    btn1.onclick  = function(){
+        a("变色")
+    };
+    btn2.onclick  = function(){
+        a("不变色","sorry")
+    }
+</script>
+</html>

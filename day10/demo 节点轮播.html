@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .box{
+            width: 247px;
+            height: 350px;
+
+        }
+        .bigbox{
+            width: 1235px;
+        }
+        .bigbox img{
+            float: left;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            var objNext=document.getElementById("next");
+            var objPrev=document.getElementById("prev");
+            var bigbox=document.getElementById("bigbox");
+            var imgs=bigbox.getElementsByTagName('img');//获取bigbox标签下面的所有img标签
+            var timer=null;
+            objPrev.onclick=function(){
+                clearInterval(timer);//清除计时器，防止计时器重复使用
+                bigbox.insertBefore(imgs[imgs.length-1],imgs[0]);  //把最后一张图片插入第一张图片的前面
+                bigbox.style.marginLeft='-247px';//调整bigbox的marginleft值，达到想要轮播的效果；
+                var pos=-247;//代表bigbox的marginleft；
+                timer=setInterval(function(){
+                    if(pos<0){
+                        pos=pos+10;//因为marginleft值为负数，所以+10就是缩小他得marginleft值，就相当于没运行一次计时器，忘右边走10px
+                        bigbox.style.marginLeft=pos+'px'
+                    }else{
+                        clearInterval(timer);
+                    }
+                },30);
+            };
+            objNext.onclick=function(){
+                clearInterval(timer);
+                var pos=0;
+                timer=setInterval(function(){
+                    if(pos>-247){
+                        pos=pos-10;
+                        bigbox.style.marginLeft=pos+'px';
+                    }else{
+                        clearInterval(timer);
+                        bigbox.appendChild(imgs[0]);
+                        bigbox.style.marginLeft='0px'
+                    }
+                },30);
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box" class="box">
+    <div class="bigbox" id="bigbox">
+        <img src="images/image_1.png" />
+        <img src="images/image_2.png" />
+        <img src="images/image_3.png" />
+        <img src="images/image_4.png" />
+        <img src="images/image_5.png" />
+    </div>
+</div>
+<button id="prev">prev</button>
+<button id="next">next</button>
+</body>
+</html>

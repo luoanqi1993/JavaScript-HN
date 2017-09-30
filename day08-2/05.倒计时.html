@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+
+</div>
+<script>
+    var div = document.getElementById("div");
+    var t1 = new Date();
+    var t2 = new Date("2017/9/21 10:00");
+    var time1 = t1.getTime();
+    var time2 = t2.getTime();
+    var t = t2-t1;         //  得到目标时间个现在时间的差
+    var s = (t/1000)%60;    //  得到秒
+    var min = ((t/1000)/60)%60;     //  得到分
+    var hours =(((t/1000)/60)/60)%24;       //  得到时
+    var day = ((((t/1000)/60)/60)/24);        //  得到天
+    if(min<10){
+        min = "0"+min;
+    }
+    if(s<10){
+        s = "0"+s;
+    }
+    div.innerHTML = "距离抢购还有："+parseInt(day)+"天"+parseInt(hours)+"时"+parseInt(min)+"分"+parseInt(s)+"秒";
+
+    setInterval(function(){
+        var div = document.getElementById("div");
+        var t1 = new Date();
+        var t2 = new Date("2017/9/21 10:00");
+        var time1 = t1.getTime();
+        var time2 = t2.getTime();
+        var t = t2-t1;         //  得到目标时间个现在时间的差
+        var s = (t/1000)%60;    //  得到秒
+        var min = ((t/1000)/60)%60;     //  得到分
+        var hours =(((t/1000)/60)/60)%24;       //  得到时
+        var day = ((((t/1000)/60)/60)/24);        //  得到天
+        if(min<10){
+            min = "0" + min;
+        }
+        if(s<10){
+            s = "0"+s;
+        }
+        div.innerHTML = "距离抢购还有："+parseInt(day)+"天"+parseInt(hours)+"时"+parseInt(min)+"分"+parseInt(s)+"秒";
+    },1);
+
+
+
+</script>
+</body>
+</html>

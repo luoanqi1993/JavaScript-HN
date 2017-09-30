@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var t1,t2;
+    t1=t2=1;
+    for(var i=1;i<=12;i++){
+        console.log("第"+(i*2-1)+"个月，"+"生了"+t1+"对兔子。");
+        console.log("第"+(i*2)+"个月，"+"生了"+t2+"对兔子。");
+        t1=t1+t2;
+        t2=t1+t2;
+    }
+</script>
+</body>
+</html>

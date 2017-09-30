@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div id="div">
+
+</div>
+<script>
+    var div = document.getElementById("div");
+    var t = new Date();
+    var hours = t.getHours();
+    if(hours<=12){
+        div.innerHTML = '<img src="img/one.jpg" alt=""/>';
+        alert("上午好");
+    }else if(hours>12){
+        div.innerHTML = '<img src="img/two.jpg" alt=""/>';
+        alert("下午好");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a,b,c,d,e;
+    var x=parseInt(prompt('请输入一个正整数'));
+    a=parseInt(x/10000);
+    b=parseInt(x%10000/1000);
+    c=parseInt(x%1000/100);
+    d=parseInt(x%100/10);
+    e=parseInt(x%10);
+    if (a!=0){
+        console.log("这是五位数，逆序为：",e,d,c,b,a);
+    }else if (b!=0){
+        console.log("这是四位数，逆序为：",e,d,c,b);
+    }else if (c!=0){
+        console.log("这是三位数，逆序为：",e,d,c);
+    }else if (d!=0){
+        console.log("这是两位数，逆序为：",e,d);
+    }else if (e!=0){
+        console.log("这是一个个位数：",e);
+    }
+</script>
+</body>
+</html>

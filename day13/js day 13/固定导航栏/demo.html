@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.main{
+			margin: 0 auto;
+			width: 1000px;
+			margin-top: 10px;
+		}
+		.fixed{
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div class="top" id="top">
+			<img src="images/top.png" />
+		</div>
+		<div class="nav" id="nav">
+			<img src="images/nav.png" />
+		</div>
+		<div class="main">
+			<img src="images/main.png" />
+		</div>
+	</body>
+	<script type="text/javascript" src="scroll.js" ></script>
+	<script>
+		var nav=$('nav');
+		var navTop=nav.offsetTop//得到导航条距离顶部的距离
+//		console.log(navTop)
+		window.onscroll=function(){
+			if(scroll().top>=navTop){
+//				alert('到位置了')
+				nav.className='nav fixed';
+			}else{
+				nav.className='nav'
+			}
+		}
+	</script>
+</html>

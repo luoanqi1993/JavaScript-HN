@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+        }
+        li{
+            width:1235px ;
+
+        }
+        input{
+            width: 80px;
+            height: 40px;
+        }
+        img{
+            float: left;
+        }
+        .box{
+            width: 247px;
+            height: 350px;
+            border: 1px solid pink;
+            position: relative;
+            /*overflow: hidden;*/
+            margin: 0 auto;
+        }
+        #right{
+            margin-left: 83px;
+        }
+        .btn{
+            width: 248px;
+            margin: 5px auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <ul id="ul">
+        <li><img src="images/image_1.png" alt=""/></li>
+        <li><img src="images/image_2.png" alt=""/></li>
+        <li><img src="images/image_3.png" alt=""/></li>
+        <li><img src="images/image_4.png" alt=""/></li>
+        <li><img src="images/image_5.png" alt=""/></li>
+    </ul>
+</div>
+<div class="btn">
+    <input type="button" value="向左" id="left"/>
+    <input type="button" value="向右" id="right"/>
+</div>
+</body>
+<script>
+    var ul = document.getElementById("ul");
+    var btn = document.getElementsByTagName("input");
+    var img = document.getElementsByTagName("img");
+    var lis = document.getElementsByTagName("li");
+    var time;
+    btn[0].onclick = function(){
+        clearInterval(time);
+        ul.insertBefore(lis[lis.length-1],lis[0]);
+        ul.style.left = "-247px";
+        var pos = -247;
+        time = setInterval(function(){
+            if(pos<0){
+                pos += 13;
+                ul.style.left = pos +"px";
+            }else{
+                clearInterval(time);
+            }
+        },30)
+    };
+
+    btn[1].onclick = function(){
+        clearInterval(time);
+        var pos = 0;
+        time = setInterval(function(){
+            if(pos>-247){
+                pos -= 13;
+                ul.style.left = pos + "px";
+            }else{
+                clearInterval(time);
+                ul.appendChild(lis[0]);
+                ul.style.left = "0px";
+            }
+        },30)
+    };
+
+
+</script>
+</html>

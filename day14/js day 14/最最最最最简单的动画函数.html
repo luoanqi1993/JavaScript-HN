@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.red{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+				left: 0px;
+			}
+			.cyan{
+				height: 300px;
+				width: 300px;
+				background: cyan;
+				position: relative;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="red" id="red"></div>
+		<div class="cyan" id="cyan"></div>
+		<button id="btn">red给我动起来</button>
+		<button id="btn1">cyan给我动起来</button>
+	</body>
+	<script type="text/javascript">
+		function $(id){return document.getElementById(id);}
+/*//		lis[0].index==lis[1].index;
+		function animate(obj,speed,target){
+			//obj就是对象，那么我传不同的对象，给他们新建timer方法，是不是timer就不痛了
+			obj.timer=setInterval(function(){//开启
+				obj.style.left=obj.offsetLeft+speed+'px';
+				if(obj.offsetLeft>target){
+					clearInterval(obj.timer);
+				}
+			},80);
+		}
+		
+		*/
+		
+		
+		
+		
+		
+		$('btn').onclick=function(){
+			animate($('red'),15,400);
+		}
+		$('btn1').onclick=function(){
+			animate($('cyan'),10,800)
+		}
+		
+		function animate(obj,speed,target){
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				console.log(obj.offsetLeft)
+				if(obj.offsetLeft>target){
+					clearInterval(obj.timer);
+				}else{
+					obj.style.left=obj.offsetLeft+speed+'px';
+				}
+			},30);
+		}
+	</script>
+</html>

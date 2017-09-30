@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        #div{
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 10px solid silver;
+            position: relative;
+        }
+        span{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <span></span>
+    </div>
+</body>
+<script>
+    var div = document.getElementById("div");
+    var span = document.getElementsByTagName("span")[0];
+    console.log(div.offsetWidth);   //  260
+    console.log(span.offsetTop);   //  父级未定位 距离以body为准 --- 30
+                                      //   定位 ，以父级为准  --- 20
+
+    console.log(span.offsetParent); //  父级未定位 父级为body
+                                       //   定位 ，取父级
+</script>
+</html>

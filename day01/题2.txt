@@ -1,0 +1,46 @@
+1.
+
+var j=1;
+j=j=j+1;
+alert(j);
+2.
+var j=1;
+j=j++;
+alert(j);
+
+3.
+var j=1;
+j=(j++)+j+(j++)+(++j)+j;
+alert(j);
+
+4.
+var j=1;
+j+=j++;
+alert(j);
+
+5.
+var j=1;
+j+=++j;
+alert(j);
+
+6.
+var j=1;
+j=j=j+1;
+j=j++;
+j+=++j;
+j+=j++;
+alert(j);
+
+7.
+var i=1;
+i+=i/i+i++;
+alert(i);       //
+i++; 
+++i;
+i+=i/i+(++i);
+alert(i);   //
+8.
+var i=1;
+i+=(i++)+(++i)/i;   
+alert(i);
+

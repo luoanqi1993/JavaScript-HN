@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 1000px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .box ul{
+            list-style: none;
+            width: 4000px;
+        }
+        .box li{
+            float: left;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <ul id="ul">
+        <li><img src="images/0.large.JPG" width="640" height="310" alt=""/></li>
+        <li><img src="images/1.large.jpg" width="640" height="310" alt=""/></li>
+        <li><img src="images/2.large.jpg" width="640" height="310" alt=""/></li>
+        <li><img src="images/3.large.JPG" width="640" height="310" alt=""/></li>
+        <li><img src="images/4.large.JPG" width="640" height="310" alt=""/></li>
+    </ul>
+</div>
+</body>
+<script src="JavaScript/base.js"></script>
+<script>
+
+    var box = document.getElementById("box");
+    var ul = document.getElementById("ul");
+    var lis = ul.children;
+
+    for(var i = 0;i<lis.length;i++){
+        lis[i].onmouseover = function(){
+            for(var j = 0;j<lis.length;j++){
+                animate(lis[j],{width:100})
+            }
+            animate(this,{width:600})
+        };
+        lis[i].onmouseout = function(){
+            for(var j = 0;j<lis.length;j++){
+                animate(lis[j],{width:200})
+            }
+        }
+    }
+
+</script>
+</html>

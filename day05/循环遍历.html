@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 210px;
+            border: 1px solid silver;
+            margin: 200px auto;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            float: left;
+            width: 25%;
+            height: 70px;
+            text-align: center;
+            cursor: pointer;
+        }
+        ul li:not(:first-child){
+            border-left:1px solid silver ;
+            box-sizing: border-box;
+        }
+        ul:not(:first-child) li{
+            border-top:1px solid silver ;
+            box-sizing: border-box;
+        }
+        span{
+           font-size: 12px;
+        }
+        i{
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 14px auto 2px ;
+        }
+        li:hover{
+            background-color: #efefef;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <ul>
+        <li>
+            <i></i>
+            <span>话费</span>
+        </li>
+        <li>
+            <i></i>
+            <span>机票</span>
+        </li>
+        <li>
+            <i></i>
+            <span>酒店</span>
+        </li>
+        <li>
+            <i></i>
+            <span>游戏</span>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <i></i>
+            <span>企业购</span>
+        </li>
+        <li>
+            <i></i>
+            <span>加油卡</span>
+        </li>
+        <li>
+            <i></i>
+            <span>电影票</span>
+        </li>
+        <li>
+            <i></i>
+            <span>火车票</span>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <i></i>
+            <span>众筹</span>
+        </li>
+        <li>
+            <i></i>
+            <span>理财</span>
+        </li>
+        <li>
+            <i></i>
+            <span>礼品卡</span>
+        </li>
+        <li>
+            <i></i>
+            <span>白条</span>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    var div = document.getElementById("div");
+    var is = div.getElementsByTagName("i");
+    console.log(is);
+    for(var i=0;i<is.length;i++){
+        is[i].style.background = "url(img/sprite.png) no-repeat ";
+        var b = -44;
+        if(i<4){
+            is[i].style.backgroundPositionX = ""+(b*i)+"px";
+        }else if(i>=4&&i<8){
+            is[i].style.backgroundPositionX = ""+b*(i-4)+"px";
+            is[i].style.backgroundPositionY = ""+b+"px";
+        }else if(i>=8){
+            is[i].style.backgroundPositionX = ""+b*(i-8)+"px";
+            is[i].style.backgroundPositionY = ""+(b*2)+"px";
+        }
+    }
+</script>
+</html>

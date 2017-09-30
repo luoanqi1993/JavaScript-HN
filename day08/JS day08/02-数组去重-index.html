@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+</head>
+<body>
+	<script>
+	//这是最简单的方法，但不是最优的
+	var arr = [1,1,1,1,2,3,4,5,4,2,3]
+	var arr1 = [11,1,1,23,2,3,4,5,4,2,3]
+	var arr2 = [1,22,1,31,2,3,4,5,4,2,3]
+
+
+	//需求：数组去除重复元素
+	//思路：步骤
+	//1,首先想到for循环遍历拿到每一个元素
+	//2,创建一个新数组（不创建新数组的话，（你需要把重复元素全部删掉））
+	//3, (if)如果arr1没有arr[i]等于-1 
+	//4，向新数组arr1中（push）添加 
+	//
+	//涉及的方法 for循环 if判断 indexOf查找没有返回-1  数组添加push
+	//
+	//indexOf 和 lastIndexOf   查找 （只是查找顺序不同）
+	//如果有返回对应的索引值
+	//如果没有返回-1
+	//
+	//
+	
+	//2,创建一个新的空数组
+		// var arr1 = [];
+		// //1,首先想到for循环遍历拿到每一个元素
+		// for(var i = 0;i<arr.length;i++){
+		// 	//3/*如果arr1没有arr[i]返回-1*/
+		// 	if(arr1.indexOf(arr[i])==-1){
+		// 		//4/*向新数组arr1中添加*/
+		// 		arr1.push(arr[i])
+				
+		// 	}
+		// }
+		// document.write(arr1)
+		/*去重封装*/
+		// function unique(arr) {
+		// 	var arr1 = [];	
+		// 	for(var i = 0;i<arr.length;i++){		
+		// 		if(arr1.indexOf(arr[i])==-1){
+		// 			arr1.push(arr[i])
+					
+		// 		}
+		// 	}
+		// 	return arr1
+		// }
+		// console.log(unique(arr1))
+		// console.log(unique(arr2))
+		// console.log(unique(arr))
+
+
+
+
+	//2,创建一个新的空数组（不创建新数组的话，（你需要把重复元素全部删掉））
+	//3, (if)如果arr1没有arr[i]等于-1 
+	//4，向新数组arr1中（push）添加
+
+	
+
+	</script>
+</body>
+</html>

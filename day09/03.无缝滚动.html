@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div{
+            width: 800px;
+            height: 300px;
+            position: relative;
+            margin: 50px auto;
+            border: 5px solid silver;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            width: 2400px;
+        }
+        li{
+            width: 400px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            font-size: 40px;
+            float: left;
+        }
+        .a1{
+            background-color: pink;
+        }
+        .a2{
+            background-color: aqua;
+        }
+        .a3{
+            background-color: blueviolet;
+        }
+        .a4{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <ul id="ul">
+        <li class="a1">1</li>
+        <li class="a2">2</li>
+        <li class="a3">3</li>
+        <li class="a4">4</li>
+        <li class="a1">1</li>
+        <li class="a2">2</li>
+    </ul>
+</div>
+</body>
+<script>
+    var ul = document.getElementById("ul");
+    var i = 0;
+    var t = setInterval(fn,1);
+    function fn(){
+        i--;
+        ul.style.left = i+"px";
+        if(i<=-1600){
+            i=0;
+        }
+    }
+    ul.onmouseover = function (){
+        clearInterval(t);
+    };
+    ul.onmouseout = function(){
+        t = setInterval(fn,1);
+    }
+</script>
+</html>

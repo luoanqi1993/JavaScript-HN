@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.red{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+			}
+			.blue{
+				height: 300px;
+				width: 300px;
+				background: blue;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="red" id="red"></div>
+		<div class="blue" id="blue"></div>
+		<button id="btn">红色</button>
+		<button id="btn1">蓝色</button>
+	</body>
+	<script type="text/javascript">
+		var red=document.getElementById("red");
+		var blue=document.getElementById("blue");
+		var btn=document.getElementById("btn");
+		var btn1=document.getElementById("btn1");
+		btn.onclick=function(){
+			animate(red,400);
+		}
+		btn1.onclick=function(){
+			animate(blue,600);
+		}
+		
+		function animate(obj,target){
+			clearInterval(obj.timer);//先清除计时器
+			var speed = obj.offsetLeft<target?10:-10;//得到固定步长
+			obj.timer=setInterval(function(){//得到步长再开始计时器动画
+				var result=target-obj.offsetLeft;
+				if(Math.abs(result)<=10){
+					clearInterval(obj.timer);
+					obj.style.left=target+'px';
+				}else{
+					obj.style.left=obj.offsetLeft+speed+'px';
+				}
+			},80);
+		}
+	</script>
+</html>

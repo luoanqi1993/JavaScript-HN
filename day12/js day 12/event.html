@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: fixed;
+				left: 40%;
+				top: 25%;
+			}
+			span{
+				display: block;
+				height: 50px;
+				width: 100%;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<span></span>-->
+		<div id="div">
+			<span></span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var div=document.getElementById("div");
+		var span=document.getElementsByTagName('span')[0];
+//		div.onclick=function(event){
+////			console.log(window.event.clientX)
+//			var e=window.event||event
+//			console.log(e.clientY)
+//			console.log(e.pageY)
+////			console.log(e.screenX);
+//			
+//		}
+/*		div.onmousemove=function(e){
+			var e=e||window.e;
+			var x=e.clientX-this.offsetLeft;
+			var y=e.clientY-this.offsetTop;
+			this.innerHTML=x+'px'+y+'px'
+		}*/
+		span.onmousedown=function(e){
+			var e=e||window.e;
+			var x=e.clientX-div.offsetLeft;
+			var y=e.clientY-div.offsetTop;
+			document.onmousemove=function(e){
+				var e=e||window.e;
+				console.log(e.clientX-x,e.clientY-y)
+				div.style.left=e.clientX-x+'px';
+				div.style.top=e.clientY-y+'px'
+			}
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+		}
+	</script>
+</html>

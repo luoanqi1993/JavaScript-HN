@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            color:#333;font-family:Helvetica,Microsoft YaHei;
+        }
+        #box{
+            width: 500px;
+            font-size: 14px;
+            border: 1px solid silver;
+            margin: 100px auto;
+        }
+        button{
+            font-size: 14px;
+        }
+        #text{
+            margin: 20px 0 0 0;
+        }
+        #one{
+            margin: 0 0 0 8px;
+        }
+
+        #two{
+            width: 360px;
+            margin: 0 auto 30px;
+        }
+        p{
+            line-height: 26px;
+            border-bottom: 1px dashed silver;
+        }
+        a{
+            color: #E2526F;
+            text-decoration: none;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="one">
+            <span>微博发布</span>
+            <textarea cols="50" rows="10" id="text"></textarea>
+            <button id="btn">发布</button>
+        </div>
+        <div id="two"></div>
+    </div>
+</body>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+    $("btn").onclick = function(){
+        if($("text").value == ""){
+            alert("请输入您要发表的内容");
+            return false;
+        }
+        var p = document.createElement("p");
+        p.innerHTML = $("text").value +'<a href="javascript:">删除</a>';
+        $("text").value = "";
+
+        var ps = $("two").children;   //  获取所有的 p
+        $("two").insertBefore(p,ps[0]);   //  把新创建的 p 放在第一个
+
+        var as = document.getElementsByTagName("a");   //  获取所有的a标签
+        for(var i = 0;i<as.length;i++){
+            as[i].onclick = function(){
+                $("two").removeChild(this.parentNode);
+            }
+        }
+    };
+
+
+</script>
+</html>

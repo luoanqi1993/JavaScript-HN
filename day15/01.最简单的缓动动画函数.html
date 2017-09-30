@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .red{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: relative;
+            left: 0px;
+        }
+        .pink{
+            width: 300px;
+            height: 300px;
+            background: pink;
+            position: relative;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="red" id="red"></div>
+    <div class="pink" id="pink"></div>
+    <button id="btn1">red动起来</button>
+    <button id="btn2">pink动起来</button>
+</body>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+    function animate(obj,target){
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function(){
+            var speed = (target - obj.offsetLeft)/10;
+            console.log(speed);
+            speed = speed>0?Math.ceil(speed) :Math.floor(speed);
+            obj.style.left = obj.offsetLeft + speed +"px";
+            if(obj.offsetLeft == target){
+                clearInterval(obj.timer);
+            }
+        },50)
+    }
+
+    $("btn1").onclick = function(){
+        animate($("red"),800);
+    };
+    $("btn2").onclick = function(){
+        animate($("pink"),1000);
+    }
+</script>
+</html>

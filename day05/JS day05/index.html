@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				background: red;
+				float: left;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+	
+	
+	
+	<script type="text/javascript">
+		window.onload=function(){
+			function fn(a){
+				alert(a)
+			}
+			
+			fn('s');
+			
+			
+			
+			
+			
+			/*var a=document.getElementById("div");
+			var a1=document.getElementById("div1");
+			var a2=document.getElementById("div2");
+			
+			function fn(s){
+				s.style.background='cyan';
+			}
+			a.onmouseover=function(){
+				var that=this;
+				fn(that);
+			}
+			a1.onmouseover=function(){
+				var that=this;
+				fn(that);
+			}
+			a2.onmouseover=function(){
+				var that=this;
+				fn(that);
+			}*/
+			//在这个点击事件里面，onclick只是监听了元素，知道了元素发生了什么，比如被点击了一下
+			//但是onclick并不能执行什么东西，执行东西是在function里面执行的
+			//也就是说，当监听到元素发生动作的时候，我们是把元素委托给了函数，来执行一些执行语句
+			
+			
+			/*function hanshu(){//自定义函数
+				alert('我被调用了');
+			}
+			hanshu();//函数不调用，自己不执行
+			
+			var fun2=function(){//直接量声明
+				alert('直接量声明')
+			}
+			fun2();*/
+			/*var fun3=new Function('var a=10;var b=15;alert("a+b")');
+			fun3();*/
+			
+			/*function fun(){
+				//变量声明提升；
+				console.log(a);
+				var a=20;
+			}
+			
+			function fun(){
+				var a;
+				console.log(a);
+				a=20;
+			}*/
+			
+//			var a=10;
+//			function fun(){
+//				console.log(a);
+//				var a=20;
+//				console.log(a);
+//			}
+//			function fun(){
+//				var a;
+//				console.log(a);
+//				var a=20;
+//				console.log(a);
+//			}
+//			fun();
+			/*var a=10;
+			fun1();
+			function fun1(){
+				fun2();
+				function fun2(){
+					fun3();
+					function fun3(){
+						alert(a);
+					}
+				}
+			}*/
+			/*function fun(){
+				a=10;
+			}
+			console.log(a);*/
+			
+			/*function fn(){
+				alert('我是无参函数');
+			}
+			fn();
+			
+			//有参函数
+			function fn1(a,s,d){
+				alert('我是一个有参函数，我的参数是：'+a+s+d);
+			}
+			//有参函数调用的时候，请传参；
+			fn1('5','6');*/
+			
+			/*function fn(a,s,d){
+				console.log(fn.length);//fn.length就是形参的长度
+				console.log(arguments.length);
+				if(fn.length==arguments.length){
+					alert(a*s*d);
+				}else{
+					alert('你能不能乖乖传三个给我？')
+				}
+			}
+			fn(1,2,3);*/
+			/*function fun(){
+				var a=10;
+				b=15;
+			}
+			fun();
+//			console.log(a);
+			console.log(b);*/
+			
+			/*var a=document.getElementById("div");
+			var a1=document.getElementById("div1");
+			var a2=document.getElementById("div2");*/
+			
+			/*function $(id){
+				return document.getElementById(id);
+			}
+			
+			$('div').onclick=function(){
+				alert(this.id)
+			}*/
+			
+			/*var div=document.getElementsByTagName('div');//获取某个类元素的标签
+			//得到的是一个伪数组；
+			//通过遍历得到伪数组内的所有元素
+			for(var i=0;i<div.length;i++){
+				console.log(div[i]);
+				div[i].style.background='cyan'
+			}*/
+			
+		}
+	</script>
+	<body>
+		<div id="div"></div>
+		
+		<div id="div1"></div>
+		
+		<div id="div2"></div>
+	</body>
+</html>

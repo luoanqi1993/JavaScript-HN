@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.main{
+				height: 3000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main"></div>
+		
+		<script type="text/javascript">
+			//页面滚动事件
+		/*window.onscroll=function(){
+				//谷歌浏览器以及怪异模式
+				document.body.scrollTop;
+				// 火狐以及其他浏览器
+				document.documentElement.scrollTop;
+				//IE
+				window.pageYOffset;
+				var scrollTop=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset;//兼容性写法
+				console.log(scrollTop);
+			}*/
+			
+			
+			/*var json={
+				key:'value',
+				key1:'value'
+			}
+			var wzq={
+				name:'吴泽权',
+				age:'18',
+				sex:'爷们儿',
+				val:'年方十八血气方刚的爷们儿'
+			}
+			var wuman=[{'name':'张启作','age':17,'sex':'女'},{'name':'吴泽权','age':18,'sex':'男'}]
+			console.log(wuman[0].name)*/
+			
+			//封装自己的scroll
+			function scroll(){
+				if(window.pageXOffset!=null){//如果浏览器支持，怎进入if判断，否则跳过
+					return {
+						left:window.pageXOffset,
+						top:window.pageYOffset
+					}
+				}else if(document.compatMode=='CSS1Compat'){//声明了DTD的非怪异模式浏览器
+					return {
+						left:document.documentElement.scrollLeft,
+						top:document.documentElement.scrollTop
+					}
+				}else{//不是上面两种就是谷歌以及怪异模式浏览器
+					return{
+						left:document.body.scrollLeft,
+						top:document.body.scrollTop
+					}
+				}
+			}
+			window.onscroll=function(){
+				console.log(scroll().top)
+			}
+		</script>
+	</body>
+</html>

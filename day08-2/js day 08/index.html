@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#d{
+				font-size: 30px;
+				text-align: center;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d"></div>
+		<script type="text/javascript">
+			var d=document.getElementById("d");
+			/*setInterval(function(){
+				var a= new Date();
+				var ms=a.getMilliseconds();
+				var time=a.getTime();//当前时间距离1970.1.1的毫秒数
+				console.log(time);
+				var b=new Date('2017/9/18 14:00:00');
+				var bt=b.getTime();
+				console.log(bt-time);
+			},1000)//计时器*/
+			
+//			var date=new Date();//函数，所以括号里面可以写东西，括号里面写东西就是传参，所以可以自定义时间，自定义参数
+//			var ms=date.getMilliseconds();//是方法，所以括号别写东西
+//			var dt=date.getTime();
+			
+			
+			/*switch(day){
+				case 1:
+					day='一';
+				break;
+				case 2:
+					day='二';
+				break;
+				case 3:
+					day='三';
+				break;
+				case 4:
+					day='四';
+				break;
+				case 5:
+					day='五';
+				break;
+				case 6:
+					day='六';
+				break;
+				case 0:
+					day='日';
+				break;
+			}*/
+			
+			/*var str='日一二三四五六';
+			setInterval(function(){
+				var t=new Date();
+				var date=t.getDate(); //获取日
+				var day=t.getDay();   //获取星期
+				var month=t.getMonth(); //获取月 0-11
+				var year=t.getFullYear(); //获取年
+				var hours=t.getHours(); //获取小时
+				var min=t.getMinutes(); //获取分钟
+				var seconds=t.getSeconds(); //获取秒
+				var mill=t.getMilliseconds(); //获取毫秒
+				var time=t.getTime(); //累计毫秒数
+				var arr=['日','一','二','三','四','五','六'];
+				d.innerHTML=year+'年'+(month+1)+'月'+date+'日'+'星期'+arr[day]+'<br />'+hours+':'+min+":"+seconds;
+			},1000);*/
+			/*var t=new Date('2017/9/18 14:00:00');
+			var hours=t.getHours(); //获取小时
+			if(hours<=12){
+				alert('上午好')
+				d.style.background='red'
+			}else{
+				alert('下午好')
+				d.style.background='pink'
+			}*/
+			
+			setInterval(function(){
+				//1、获取当前时间
+				var date=new Date();
+				//2、获取目标事件
+				var date_end=new Date('2017/9/21/ 10:00:00');
+				var time=date.getTime();//现在距离1970 1 1日的毫秒数；
+				var time_end=date_end.getTime();//目标时间距离1970 1 1日的毫秒数；
+				var t=((time_end-time)/1000);//目标时间距离当前时间的差
+				var s=t%60;
+				var m=(t/60)%60;
+				var h=((t/60)/60)%24;
+				var tt=((t/60)/60)/24;
+				d.innerHTML='距离抢购时间还剩：'+parseInt(tt)+'天'+parseInt(h)+'小时'+parseInt(m)+'分'+parseInt(s)+'秒';
+			},1)
+		</script>
+	</body>
+</html>

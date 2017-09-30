@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var a = "hello world good kol aw ccs";
+    function szm(str){
+        var arr = str.split(" ");
+        for(var i=0;i<arr.length;i++){
+            arr[i] = arr[i].substr(0,1).toUpperCase() + arr[i].substr(1);
+        }
+        return arr.join(" ");
+    }
+    console.log(szm(a));
+</script>
+</body>
+</html>

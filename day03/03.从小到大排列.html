@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a = parseInt(prompt("请输入你的一个数值"));
+    var b = parseInt(prompt("请输入你的二个数值"));
+    var c = parseInt(prompt("请输入你的三个数值"));
+    var n;
+    if(a>b){
+        n=a;
+        a=b;
+        b=n;
+    }
+    if(a>c){
+        n=c;
+        a=c;
+        c=n;
+    }
+    if(b>c){
+        n=b;
+        b=c;
+        c=n;
+    }
+    console.log(a,b,c);
+</script>
+</body>
+</html>

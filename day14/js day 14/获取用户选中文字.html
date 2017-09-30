@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="demo" id="demo">
+			什么是冒泡？就是在水的最底层，生成一个泡泡，然后一直往水面浮，一直浮到最上层，然后炸开；
+			什么是事件冒泡？当一个元素上的事件被触发的时候，比如说，鼠标点击一个按钮，那么，同样的事件，会被这个元素的所有祖先元素触发，这个过程，被称之为事件冒泡；
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var demo=document.getElementById("demo")
+			demo.onmousemove=function(){
+				if(window.getSelection){
+					var txt=window.getSelection().toString();
+				}else{
+					var txt=document.selection.createRange().text;
+				}
+				console.log(txt)
+			}
+		}
+	</script>
+</html>

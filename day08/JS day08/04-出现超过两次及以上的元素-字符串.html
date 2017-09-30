@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>出现超过两次及以上的元素-字符串</title>
+</head>
+<body>
+	<script>
+	var str = 'ajdisfjaiewadesfji'
+	var s = ''
+
+	for(var i =0;i<str.length;i++){		
+		if(str.indexOf(str[i]) < str.lastIndexOf(str[i])){
+			s += str[i]
+		}
+	}
+	console.log(s)
+
+
+	</script>
+</body>
+</html>

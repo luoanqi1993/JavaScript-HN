@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var body=document.getElementsByTagName('body');//先，给谁添加节点，就要获取谁，现在是给body添加，就要获取body
+/*		var div=document.createElement('div');//想要添加标签，就要有才能添加，不能无中生有，所以先创建一个标签节点
+		var div1=document.createElement('div');*/
+/*		body[0].appendChild(div)//给body添加子节点，子节点是div
+		body[0].appendChild(div1);*/
+		//用数组存起来新建的div，是为了方便后面拿出来修改，但是一般创建新元素不需要进行修改
+		for(var i=1;i<=5;i++){//通过循环，创建了五次div，每次都赋值给同一个变量，然后body添加这个变量，就相当于添加了5次div
+			var div=document.createElement('div');
+			body[0].appendChild(div);
+		}
+	</script>
+</html>

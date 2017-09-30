@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{ color:#333;font-family:Helvetica,Microsoft YaHei;}
+        .box{
+            width: 100%;
+            height: 100%;
+            background:black;
+        }
+        .nav{
+            width: 800px;
+            margin: 0 auto;
+            line-height: 42px;
+            height: 42px;
+            background: white;
+            border-radius: 5px;
+            position: relative;
+            top: 100px;
+            text-align: center;
+        }
+        .nav ul{
+            list-style: none;
+            height: 42px;
+            float: left;
+            position: absolute;
+        }
+
+        .nav:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .nav ul li{
+            float: left;
+            width: 83px;
+        }
+        .nav ul li a{
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        #span{
+            background: url("images/rss.png");
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            float: right;
+            margin: 5px;
+        }
+        .nav .bg{
+            background: url("images/cloud.gif");
+            position: absolute;
+            left: 0;
+            width: 83px;
+            height: 42px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="nav">
+        <span id="bg" class="bg"></span>
+        <ul id="ul">
+            <li><a href="javascript:">首页新闻</a></li>
+            <li><a href="javascript:">活动规则</a></li>
+            <li><a href="javascript:">阿里巴巴</a></li>
+            <li><a href="javascript:">腾讯新闻</a></li>
+            <li><a href="javascript:">网站策划</a></li>
+            <li><a href="javascript:">公司简介</a></li>
+            <li><a href="javascript:">好好学习</a></li>
+            <li><a href="javascript:">天天向上</a></li>
+        </ul>
+        <span id="span"></span>
+    </div>
+</div>
+</body>
+
+<script>
+    var ul = document.getElementById("ul");
+    var bg = document.getElementById("bg");
+    var ulis = ul.children;
+    var timer = null;
+    var leader = 0,target = 0,current = 0;
+
+    for(var i=0;i<ulis.length;i++){
+        ulis[i].onmouseover = function(){
+            clearInterval(timer);
+            target = this.offsetLeft;
+            timer = setInterval(animate,20);
+        };
+        ulis[i].onclick = function(){
+            current = this.offsetLeft;
+        };
+    }
+
+    ul.onmouseout = function(){
+        clearInterval(timer);
+        target = current;
+        timer = setInterval(animate,20);
+    };
+
+    function animate(){
+        leader =leader + (target -leader)/10;
+        bg.style.left = leader +"px";
+    }
+
+</script>
+</html>

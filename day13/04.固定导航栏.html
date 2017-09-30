@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width:1423px;
+            margin: 0 auto;
+        }
+        .top{
+            background: url("images/top.png") no-repeat;
+            width: 100%;
+            height: 168px;
+        }
+        .nav{
+            background: url("images/nav.png") no-repeat;
+            width: 100%;
+            height: 83px;
+        }
+        .main{
+            background: url("images/main.png") no-repeat;
+            width: 1000px;
+            height: 2734px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="top"></div>
+    <div class="nav" id="nav"></div>
+    <div class="main"></div>
+</div>
+</body>
+<script>
+    var box = document.getElementById("box");
+    var nav = document.getElementById("nav");
+    function scroll(){
+        if(window.pageXOffset != null){
+            return  {
+                left:window.pageXOffset,
+                top:window.pageYOffset
+            }
+        }else if(document.compatMode == "CSS1Compat"){
+            return {
+                left:document.documentElement.scrollLeft,
+                top:document.documentElement.scrollTop
+            }
+        }else{
+            return {
+                left:document.body.scrollLeft,
+                top:document.body.scrollTop
+            }
+        }
+    }
+    window.onscroll = function(){
+        var n = scroll().top;
+        console.log(n);
+        if(n>170){
+            nav.style.position = "fixed";
+            nav.style.top = "0px";
+        }else if(n<170){
+            nav.style.position = null;
+        }
+    }
+</script>
+</html>

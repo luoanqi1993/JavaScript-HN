@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            background: red;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+        button{
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <button id="btnX">X</button>
+    <button id="btnY">Y</button>
+</div>
+</body>
+<script>
+    var box = document.getElementById("box");
+    var btnX = document.getElementById("btnX");
+    var btnY = document.getElementById("btnY");
+    var timer = null;
+    var bottom= 0;
+    var right = 0;
+    btnX.onclick = function(){
+        clearInterval(timer);
+        animate(fun);
+    };
+    btnY.onclick = function(){
+        clearInterval(timer);
+        animate();
+    };
+
+    function animate(s){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            bottom--;
+            box.style.bottom = bottom + "px";
+            if(bottom<-200){
+                clearInterval(timer);
+                if(s){
+                    s();
+                }else if(!s){
+                    alert("game over")
+                }
+            }
+        },10);
+    }
+
+    function fun(){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            right--;
+            box.style.right = right + "px";
+            if(right<-400){
+                clearInterval(timer);
+                box.style.display = "none";
+            }
+        },10);
+    }
+</script>
+</html>

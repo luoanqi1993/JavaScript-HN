@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">点我跳转</button>
+</body>
+<script>
+//    window.alert("hello world");  //  弹出对话框
+    //  一般使用中，window对象中的window可以省略；
+
+//    console.log(window.confirm("hello"));
+    // 显示一个带有指定消息和ok及取消按钮的对话框
+    // 如果用户点击确定按钮，则confirm()返回true,点击取消，则返回false
+
+//    console.log(window.prompt("text,defaultText"));
+    //Text：对话框中显示的纯文本；
+    //DefaultText：默认的输入文本
+    //返回值：如果用户单机提示框的取消按钮，返回null；
+    //如果单机确认按钮，返回输入字段当前显示的文本；
+
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+        window.open("http://www.baidu.com","newwindow","height:500,top:100,left:100,toolber=no,manuber=no,scrollbars=no");
+    }
+</script>
+</html>

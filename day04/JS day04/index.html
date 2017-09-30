@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#d1 {
+				height: 80px;
+				width: 80px;
+				border: 1px solid red;
+				border-top: 1px solid yellow;
+			}
+			
+			#s1 {
+				display: block;
+				height: 80px;
+				width: 80px;
+				background: cyan;
+			}
+			
+			#p1 {
+				color: blue;
+			}
+			#sq{
+				height: 10px;
+				width: 10px;
+				background: blue;
+				margin: 0px auto;
+				transform: rotate(45deg);
+			}
+		</style>
+<!--		<script type="text/javascript" src="js/index.js" ></script>-->
+	</head>
+	<body>
+		<div id="d1">
+			我是一个div
+		</div>
+		<span id="s1">
+				我是一个span
+			</span>
+		<p id="p1">
+			我是一个p
+		</p>
+		<button id="b1">按钮</button>
+		
+		<marquee id="m1">你来捉我呀</marquee>
+		
+		<div id="sq">
+			
+		</div>
+		
+		
+		
+		
+	</body>
+	<script>
+		var b1=document.getElementById('b1');
+		var s1=document.getElementById('s1');
+		var flag=true;
+/*		b1.onclick=function(){
+			if(flag){
+				s1.style.background='red';
+				flag=false;
+			}else{
+				s1.style.background='cyan';
+				flag=true;
+			}
+		}*/
+		var a=0;
+		var b=45;
+		var sq=document.getElementById('sq');
+		sq.onclick=function(){
+/*			if(flag){
+				sq.style.transform='rotate(0deg)';
+				
+				flag=false;
+				console.log(flag);
+			}else{
+				sq.style.transform='rotate(45deg)';
+				
+				flag=true;
+				console.log(flag);
+			}*/
+		}
+	</script>
+	
+	
+	
+</html>

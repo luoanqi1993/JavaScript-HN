@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 200px;
+            margin: 50px auto;
+        }
+        input{
+            width: 200px;
+            height: 20px;
+        }
+        #div{
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="text"/>
+    <div></div>
+</div>
+<script>
+    var arr = ["哀伤的时光","哀伤的日子","哀伤的狗狗","狗狗的治疗","怎么样养好狗狗","狗居的日子","那些年回不去的时光"];
+    var input = document.getElementsByTagName("input")[0];
+    var div = document.getElementsByTagName("div")[1];
+
+    for(var i=0;i<arr.length;i++){
+			        div.innerHTML += arr[i]+"<br/>";
+			    }
+
+    input.oninput = function(){
+    	/*事件的执行程序里边*/
+    	var v = input.value;
+    	div.innerHTML = '';
+    	 
+    	 for(var i=0;i<arr.length;i++){
+    	 	/*没有的*/
+	       if( arr[i].search(v) != -1){
+	           div.innerHTML += arr[i]+"<br/>";
+	       }
+   		}
+    }
+  
+</script>
+</body>
+</html>

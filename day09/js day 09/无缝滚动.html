@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.mian{
+				height: 300px;
+				width: 500px;
+				margin: 50px auto;
+				position: relative;
+				border: 5px solid #000;
+				overflow: hidden;
+			}
+			ul{
+				list-style: none;
+				width: 2600px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			li{
+				height: 300px;
+				width: 500px;
+				line-height: 300px;
+				text-align: center;
+				font-size: 40px;
+				float: left;
+			}
+			.li1{
+				background: red;
+			}
+			.li2{
+				background: yellow;
+			}
+			.li3{
+				background: cyan;
+			}
+			.li4{
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mian">
+			<ul id="ul">
+				<li class="li1">1</li>
+				<li class="li2">2</li>
+				<li class="li3">3</li>
+				<li class="li4">4</li>
+				<li class="li1">1</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ul=document.getElementById("ul");
+		var l=0;
+		var timer=null;
+		timer=setInterval(fun,10);
+		ul.onmouseover=function(){
+			clearInterval(timer);
+		}
+		ul.onmouseout=function(){
+			timer=setInterval(fun,10);
+		}
+		function fun(){
+			l--;
+			ul.style.left=l+'px';
+			if(l<=-2000){
+				l=0;
+			}
+		}
+	</script>
+</html>

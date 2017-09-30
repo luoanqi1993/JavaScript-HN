@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 1000px;
+				height: 400px;
+				margin: 50px auto;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+			div ul{
+				list-style: none;
+				width: 3300px;
+			}
+			div li{
+				float: left;
+				width: 200px;
+				height: 400px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function getStyle(obj, attr) { //获取谁的，哪个属性
+			if(obj.currentStyle) { //如果浏览器识别这句话，就会返回TRUE，就会执行语句，就代表是IE浏览器
+				return obk.currentStyle[attr];
+			} else { //如果不识别上面那句话，那就不是IE，就是其他标准浏览器
+				return window.getComputedStyle(obj, null)[attr];
+			}
+		}
+
+		//多属性运动框架   回调函数 包含透明度
+		function animate(obj, json, fn) {
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function() {
+				var flag = true;
+				for(var attr in json) {
+					var current = 0;
+					if(attr=="opacity"){
+						current = parseInt(getStyle(obj, attr)*100);
+					}else{
+						current = parseInt(getStyle(obj, attr));
+					}
+					var step = (json[attr] - current) / 10;
+					step = step > 0 ? Math.ceil(step) : Math.floor(step);
+					
+					if(attr == "opacity"){
+						obj.style.opacity = (current + step)/100;
+					}else if(attr == "zIndex"){
+						obj.style.zIndex = json[attr]
+					}else{
+						obj.style[attr] = current + step + 'px';
+						console.log(current)
+					}
+					if(current != json[attr]) {
+						flag = false;
+					}
+
+				}
+				if(flag) {
+					clearInterval(obj.timer);
+					if(fn) {
+						fn();
+					}
+				}
+			}, 5);
+		}
+			
+			
+			
+			window.onload=function(){
+				var box = document.getElementsByTagName('div')[0];
+				var lis = box.children[0].children;
+				console.log(lis)
+				for(var i = 0;i<lis.length;i++){
+					lis[i].style.background="url(images/"+(i+1)+".jpg)";
+					lis[i].onmouseover=function(){
+						for(var i = 0;i<lis.length;i++){
+							animate(lis[i],{width:100})
+						}
+						animate(this,{width:600});
+					}
+					lis[i].onmouseout=function(){
+						for(var i = 0;i<lis.length;i++){
+							animate(lis[i],{width:200})
+						}
+					}
+				}
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

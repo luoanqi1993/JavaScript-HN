@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*//第五题
+			var t1,t2;
+			t1=t2=1;
+			for(var i=1;i<=12;i++){
+				console.log("第"+(i*2-1)+"个月有"+t1+"对兔子");
+				console.log("第"+(i*2)+"个月有"+t2+"对兔子");
+				t1=t1+t2;
+				t2=t2+t1;
+			}*/
+			/*//第十一题
+			for(var i=6;i<1000;i++){
+				var sum=1;
+				for(j=2;j<i;j++){
+					if(i%j==0){
+						sum=sum+j;
+					}
+				}
+				if(i==sum){
+					console.log("完数是："+i);
+					console.log(1)
+					for(j=2;j<i;j++){
+						if(i%j==0){
+							console.log(j);
+						}
+					}
+				}
+			}*/
+/*			for(var i=1;i<=3;i++){
+				for(var j=1;j<=3;j++){
+					if(i!=j){//防止三个队员重复出现；
+						for(var k=1;k<=3;k++){
+							if(i!=k&&j!=k){//防止三个队员重复出现；
+								if(i!=1&&k!=3&&k!=1){
+									console.log("a和"+i+"打","b和"+j+"打","c和"+k+"打")
+								}
+//								console.log(i,j,k)
+							}
+						}
+					}
+				}
+			}*/
+			
+//			//2
+//			for(var i=1;i<100000;i++){
+//				var x=parseInt(Math.sqrt(i+100));
+//				var y=parseInt(Math.sqrt(i+268));
+//				if(x*x===(i+100)&&y*y===(i+268)){
+//					console.log(i);
+//				}
+//			}
+			/*var x=parseInt(prompt('请输入第一个整数：'));
+			var y=parseInt(prompt('请输入第二个整数：'));
+			var z=parseInt(prompt('请输入第三个整数：'));
+			var t;
+			if(x>y){
+				t=x;
+				x=y;
+				y=t;
+			}
+			if(x>z){
+				t=x;
+				x=z;
+				z=t;
+			}
+			if(y>z){
+				t=y;
+				y=z;
+				z=t;
+			}
+			console.log(x,y,z);*/
+			/*//4
+			for(var i=1;i<=9;i++){
+				for(var j=1;j<=i;j++){
+					document.write(i+"*"+j+"="+i*j+" ");
+				}
+				document.write("<br/>"); 
+			}*/
+			/*for(var i=100;i<=999;i++){
+				var a=parseInt(i/100);
+				var b=parseInt((i/10)%10);
+				var c=parseInt(i%10);
+				if(a*a*a+b*b*b+c*c*c===i){
+					console.log(i)
+				}
+			}*/
+			/*var s1=0,s2=0,h=100;
+			for(var i=0;i<10;i++){
+				s1=s1+h;
+				h=h/2;
+				if(i<9){
+					s2=s2+h;
+				}
+			}
+			console.log("第十次落地的时候，共经过"+(s1+s2)+"米");
+			console.log('第十次反弹高度为：'+h+"米");*/
+			/*var t=1;
+			var day=10;
+			for(var i=10;i>0;i--){
+				console.log('第'+day+"天，有桃子"+t+'个');
+				t=(t+1)*2;
+				day--;
+			}*/
+			//15
+/*			var s=0;
+			for(var i=1;i<=20;i++){
+				s=s+i*i;
+			}*/
+/*			var a=10;
+			for(var i=5;i>1;i--){
+				a=a+2;
+				console.log(a)
+			}*/
+			/*var a,b,c,d,e;
+			var x=parseInt(prompt('请输入一个正整数：'));
+			a=parseInt(x/10000);
+			b=parseInt(x%10000/1000);
+			c=parseInt(x%1000/100);
+			d=parseInt(x%100/10);
+			e=parseInt(x%10);
+			
+			if(a!=0){
+				console.log("这是一个五位数，逆序为：",e,d,c,b,a);
+			}*/
+			
+			
+			/*for(var i=1;i<=20;i+=2){
+				if(i==9){
+					/*continue;*///结束当前循环并进入下一次循环，仅仅只是这一次循环结束了，并不是所有的循环都结束了，后面的循环照常进行；不管后面有什么东西，全都无视了
+					/*break;*///结束循环，本次以及后面所有循环，全部结束，跳出去了；
+					/*适用于所有循环，包括函数内；
+				}
+				console.log(i);
+			}*/
+			
+			/*while循环*/
+			/*
+			 
+			 for(初始化；条件；增量){
+			 	执行语句
+			 }
+			 
+			 
+			 while(条件){
+			 	执行语句；
+			 }
+			  也就是说，while循环的条件，必须在外面声明；并且循环增量执行在while执行语句里面；
+			 */
+			/*for(var i=1;i<=10;i++){
+				console.log(i);
+			}*/
+			/*var i=1;
+			while(i<=10){
+				console.log(i);
+				i++;
+				
+			}*/
+			/*
+			 
+			 多分支语句 switch
+			 switch 跟if else if是一模一样的，只是效率更高；
+			 作用就是多选一，从多个里面选一个。语法：
+			 switch(参数){
+			 	case 参数1：
+			 		执行语句；
+			 	break;
+			 	case 参数2：
+			 		执行语句；
+			 	break;
+			 	case 参数3：
+			 		执行语句；
+			 	break;
+			 	case 参数4：
+			 		执行语句；
+			 	break;
+			 }
+			  ！！！！！！！！注意，switch(里面千万千万不能写表达式)；
+			  ！！！！！！！！注意，case 也别给我写表达式！！！！！！
+			 */
+			/*var a=parseInt(prompt('请输入：1、2、3、4'));
+			switch(a){
+				case 1:
+					alert('您确定要买苹果吗？');
+				break;
+				case 2:
+					alert('您确定要买橡胶吗？');
+				break;
+				case 3:
+					alert('您确定要买栗子吗？');
+				break;
+				case 4:
+					alert('您确定要买葡萄吗？');
+				break;
+			}*/
+			
+		/*星期一 Monday
+		星期二 Tuesday
+		星期三 Wednesday
+		星期四 Thursday
+		星期五 Friday
+		星期六 Saturday
+		星期天 Sunday*/
+		
+		/*或者的符号：||，就是当多个条件满足其中一个，就执行，不需要全部满足*/
+		/*var a = prompt("请输入每天单词的首字母，并且大写：");
+		var b;
+		if(a=='M'||a=='T'||a=='W'||a=='F'||a=='S'){
+			switch(a){
+				case "M":
+				alert('星期一');
+				break;
+				case "T":
+					b=prompt('请输入第二个字母，并且小写：');
+					switch(b){
+						case 'u':
+						alert('星期二');
+						break;
+						case 'h':
+						alert('星期四');
+						break;
+					}
+				break;
+				case "W":
+				alert('星期三');
+				break;
+				case "F":
+				alert('星期五');
+				break;
+				case "S":
+					b=prompt('请输入第二个字母，并且小写：');
+					switch(b){
+						case 'u':
+						alert('星期天');
+						break;
+						case 'a':
+						alert('星期六');
+						break;
+					}
+				break;
+			}
+		}else{
+			alert('您的输入有误！');
+		}*/
+		/*什么是数组
+		 数组干嘛用的?
+		 var num=10;之前我们用变量来存储东西。
+		 但是呢，一个变量里面，只能由一个值；
+		 我二十个人，想把每个人名字都存在一起，要不是20个变量
+		  
+		  工作量大，而且很麻烦，所以，可以考虑使用数据的组合：数组；
+		  数组可以理解成一个大变量，它里面可以有很多个值
+		 **/
+		//声明数组
+		//var arr=['吴泽权',2,'刘家溪','魏亚宇'];
+		//数组,是有索引的,并且是从"“0”"开始
+		//而且数组，可以存放任意数据类型，并且可以混淆存放
+		//获取数组的长度：：：方法：：数组.length;
+		//console.log(arr.length);
+		//遍历数组
+		/*for(var i=0;i<arr.length;i++){
+			console.log(arr[i]);
+		}*/
+		
+		/*var arr=new Array();
+		arr[0]='吴泽权';
+		arr[1]=2;
+		arr[2]='魏亚宇';
+		console.log(arr);*/
+		
+		/*var arr=[85,4684,4,88,26,94,1];
+		/*题目一:求一个数组的平均值(里面都要用数字);
+		题目二:对一组数组进行排序;
+		var len=arr.length;//获取数组的长度；
+		var sum=0;
+		for(var i=0;i<len;i++){
+			sum+=arr[i];
+		}
+		console.log(sum/len);*/
+		//冒泡排序的原理：
+		//依次比较相邻的两个值，如果后面的比前面的小。则将想的元素排在前面，依次按照这个规则进行多次并且递减的迭代，知道排序正确位置；
+		/*var arr=[85,4684,4,88,26,94,1];
+		for(var i=0;i<arr.length-1;i++){
+			for(j=0;j<arr.length-1-i;j++){
+				if(arr[j]>arr[j+1]){
+					var temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+					console.log(arr);
+				}
+			}
+		}*/
+		/*解释：
+		 两个循环，当I=0的时候，里面的循环完整执行，从j=0执行到j=5，这就是第一遍的排序
+		 结果是：将最大的数字排到了最后；
+		 当i=1的时候，里面的循环再次完整的执行，由于最大的数字已经在最后，所以没必要比较叔祖最后的两项
+		 所以，j<arr.length-1-i;
+		 也就是说，每次将最大的一个数排在了最后，直到I=5，j=0;就直接第一项和第二项比较，就over;
+		 
+		 * */
+		//插入排序法
+		//工作方式：像打扑克牌一样，一开始，左手为空，并且桌子上面的牌面朝下，然后，每次从桌子上那一张牌，插入手上
+		//对比手上已有的牌,把他根据大小插进去;
+		var arr=[85,4684,4,88,26,94,1];
+		var temp=null;//定义一个临时变量保存要插入元素的值
+		for(var i=1;i<arr.length;i++){//从索引1开始遍历数组
+			if(arr[i]<arr[i-1]){//只要插入的元素小于已经排好的最大元素时，就执行下面的操作；
+				temp=arr[i];//把要插入的元素赋给临时变量；
+				var p=i-1;//已经排好的素组的最后一项的索引为i-1;
+				while(temp<arr[p]&&p>=0){//如果要插入的元素小于已经排好的元素；
+					arr[p+1]=arr[p];//把大于要插入元素（temp）的已经排好的元素位置往后挪；
+					p--;//从后往前遍历已经排好序的元素；
+				}
+				arr[p+1]=temp;
+				console.log(arr);
+			}
+		}
+		
+		</script>
+	</body>
+</html>
+

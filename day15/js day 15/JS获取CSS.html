@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.red{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+			}
+			.blue{
+				height: 300px;
+				width: 300px;
+				background: blue;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="red" id="red"></div>
+		<div class="blue" id="blue"></div>
+		<button id="btn">红色</button>
+		<button id="btn1">蓝色</button>
+	</body>
+	<script type="text/javascript">
+		var red=document.getElementById("red");
+		var blue=document.getElementById("blue");
+		var btn=document.getElementById("btn");
+		var btn1=document.getElementById("btn1");
+//		
+//		function fn(attr){
+//			console.log(red.style[attr]);
+//		}
+//		fn('height')
+//		fn('left')
+//		console.log(red.style.left)//得到空值，因为只能获取行内
+//		console.log(window.getComputedStyle(red,null).left);//w3c浏览器标准写法
+//		console.log(red.currentStyle.width);
+		function getStyle(obj,attr){//获取谁的，哪个属性
+			if(obj.currentStyle){//支持这句话，就是IE
+				return obj.currentStyle[attr];
+			}else{
+				return window.getComputedStyle(obj,null)[attr]//不是IE就全是W3C标准浏览器
+			}
+		}
+		console.log(getStyle(blue,'left'))
+	</script>
+</html>

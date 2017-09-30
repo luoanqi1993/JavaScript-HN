@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    vertical-align: top;
+}
+.banner{
+    width: 800px;
+    height: 345px;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+.slider{
+    width: 800px;
+    height: 300px;
+}
+.pic{
+    width: 1600px;
+    height: 300px;
+}
+.pic-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 300px;
+}
+.pig-img img{
+    width: 100%;
+}
+.btn{
+    text-align: center;
+    padding-top: 5px;
+}
+
+.btn-icon{
+    width: 24px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/icon.png) no-repeat -24px -782px;
+    margin: 0 5px;
+    cursor: pointer;
+    text-indent: -20em;
+    overflow: hidden;
+}
+
+.bg-icon{
+    background-position: -24px -762px;
+}
+
+
+.left,.right{
+    width:39px;height:79px;
+    background:url(../images/left_right.png) no-repeat;
+    cursor:pointer;
+    position:absolute;
+    top: 34%;
+    opacity: 0;
+}
+
+.left{
+    left:0;
+    background-position:-17px -10px;
+}
+.right{
+    right:0;
+    background-position:-64px -10px;
+}

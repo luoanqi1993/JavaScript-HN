@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" id="txt" value="你看我是不是被选中了"/>
+<select id="slc">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+</select>
+<script>
+    var txt = document.getElementById("txt");
+    txt.focus(); // 自动获取焦点
+    txt.select(); // 选中表单中的内容
+    txt.oninput = function(){   //用户输入时发生的时间
+        alert("hello world");
+    };
+    var slc = document.getElementById("slc");
+    slc.onchange = function(){
+        alert("159");
+    }
+</script>
+</body>
+</html>

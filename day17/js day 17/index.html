@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+<!--		<script>
+			//变量的作用域  全局变量和局部变量
+			var a='吴泽权';//全局变量
+			function fun(){
+				var b='张启作';//局部变量
+				
+			}
+			fun();
+		</script>-->
+		
+		
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload=function(){
+		
+/*		
+		var a=10;//如果写在window.onload里面，他就不能算全局变量，只能算局部内最高变量
+		
+		*/
+/*		function fun(){
+			var a = 10;
+		}
+		console.log(a)//报错，访问不到，因为a是局部的
+		//那么，就要用闭包
+		*/
+/*		fun1();
+		function fun1(){
+			var a=10;//他是fun1的变量
+			fun2()
+			function fun2(){
+				var b = 20;//他是fun2的变量
+				console.log(a,b)//也就是说，外部函数的变量，可以被内部函数调用，这叫做变量的作用域链
+			}
+			
+		}*/
+		/*function fun1(){
+			var a = 10;
+			function fun2(){
+				console.log(a)
+			}
+			return fun2;
+		}
+		fun1();
+		var demo = fun1();
+		//也就是说  fun1() 返回的是：  function fun2(){console.log(2)}
+		//相当于：var demo = function fun2(){console.log(a)}
+		demo();*/
+/*		function fun1(x){
+			var x = g;
+			
+			return function fun2(y){
+				
+				console.log(a);
+			}
+			return fun2;
+		}
+		fun1(50);*/
+		//闭包的传参
+		function fun1(x){
+			return function(y){
+				console.log(x+y);
+			}
+		}
+		var demo=fun1(40);
+		demo(10);
+		
+	}
+</script>

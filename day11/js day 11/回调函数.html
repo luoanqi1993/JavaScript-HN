@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn1">不变色</button>
+		<button id="btn2">变色</button>
+	</body>
+	<script type="text/javascript">
+		/*function a(){
+			console.log('我是函数a');
+			b();//当前函数a执行完了之后，执行b函数，就叫做回调函数；
+		}
+		function b(){
+			console.log('我是函数b')
+		}
+		a();*/
+		var btn1=document.getElementById("btn1");
+		var btn2=document.getElementById("btn2");
+		function a(t1,t2){
+			alert(t1);
+			if(t2){
+				b();
+			}
+		}
+		function b(){
+			var body=document.getElementsByTagName('body')[0];
+			body.style.background='red';
+		}
+		btn1.onclick=function(){
+			a('我出来之后，屏幕不变色');
+		}
+		btn2.onclick=function(){
+			a('我出来之后，屏幕变色',12321);
+		}
+	</script>
+</html>

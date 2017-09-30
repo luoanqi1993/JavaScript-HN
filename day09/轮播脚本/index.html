@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>js首页按钮控制焦点图片滚动 - 站长素材</title>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/* outer */
+#outer{width:800px;height:300px;margin:50px auto;position:relative;overflow:hidden;background:#eee;box-shadow:10px 5px 15px #ccc;border-radius:5px;border:1px solid #ccc;}
+#inner{display:block;width:4800px;height:300px;position:absolute;left:0;top:0;}
+#inner li{display:block;width:800px;height:300px;float:left;font-size:72px;line-height:300px;text-align:center;content:#666;text-shadow:3px 3px 2px #999,5px 5px 2px #ccc;background:#eee;}
+#nav{width:200px;height:40px;padding-left:600px;position:absolute;bottom:0;left:0;opacity:0.8;filter:alpha(opacity=80);}
+#nav em{display:block;float:left;width:24px;height:24px;margin-right:8px;margin-top:8px;line-height:24px;text-align:center;font-size:14px;color:#333;font-style:normal;font-family:Arial;background:#eee;border-radius:12px;cursor:pointer;}
+#nav .ehover{background:#360;color:#fff;}
+#left,#right{ width:40px;height:100px;position:absolute;top:100px;background:#333;opacity:0.4;color:#fff;font-size:36px;text-align:center;line-height:100px;cursor:pointer;}
+#left:hover,#right:hover{opacity:0.8}
+#left{left:0;border-top-right-radius:10px;border-bottom-right-radius:10px;}
+#right{right:0;border-top-left-radius:10px;border-bottom-left-radius:10px;}
+</style>
+</head>
+<body>
+
+	<div id="outer">
+		<ul id="inner">
+			<li><img src="images/11.jpg" width="800" height="300" alt=" "></li>
+			<li><img src="images/22.jpg" width="800" height="300" alt=" "></li>
+			<li><img src="images/33.jpg" width="800" height="300" alt=" "></li>
+			<li><img src="images/44.jpg" width="800" height="300" alt=" "></li>
+			<li><img src="images/55.jpg" width="800" height="300" alt=" "></li>
+			<li><img src="images/11.jpg" width="800" height="300" alt=" "></li>
+		</ul>
+		<div id="left">L</div>
+		<div id="right">R</div>
+	</div>
+	
+	<script type="text/javascript">
+    var outer=document.getElementById("outer");
+    var oInner=document.getElementById("inner");
+    var oLis=oInner.getElementsByTagName("li");
+    var oleft=document.getElementById("left");
+    var oright=document.getElementById("right");
+    var step=0;
+    var timer=null;
+    function buttur(ele,obj){
+    	window.clearTimeout(ele.timer);
+    	var end=null;
+    	for(direc in obj){
+    		var direc1=direc.toLowerCase();
+    		var strOffset="offset"+direc1.substr(0,1).toUpperCase()+direc1.substring(1).toLowerCase();
+    		var target=obj[direc];
+    		var nSpeed=(target-ele[strOffset])/10;
+    		nSpeed=nSpeed>=0?Math.ceil(nSpeed):Math.floor(nSpeed);
+    		ele.style[direc1]=ele[strOffset]+nSpeed+"px";
+    		end+=nSpeed;
+    	}
+    	if(end)
+    		if(typeof fnCallback=="function"){
+    			fnCallback.call(ele);
+    		}else{
+            ele.timer=window.setTimeout(function(){buttur(ele,obj)},30);
+    		}
+    }
+    var divs=document.createElement("div");
+    divs.setAttribute("id","nav");
+    for(var i=0; i<oLis.length;i++){
+        var oa=document.createElement("em");
+        oa.innerHTML=i+1;
+        divs.appendChild(oa);
+    }
+    outer.appendChild(divs);
+    var btn=document.getElementById("nav").getElementsByTagName("em");
+    for(var i=0; i<btn.length; i++){
+        btn[i].indx=i;
+        btn[0].className="ehover";
+        btn[i].onclick=function(){
+            //window.clearTimeout(timer);
+            for(var i=0; i<btn.length; i++){
+                btn[i].className="";
+                btn[this.indx].className="ehover";
+            }
+            buttur(oInner,{left:-oLis[0].offsetWidth*this.indx}); 
+        }    
+    }
+    function autoMove(){
+     	step++;
+    	if(step<btn.length){
+             for(var i=0; i<btn.length; i++){
+                btn[i].className="";
+                btn[step].className="ehover";
+                buttur(oInner,{left:step*-800});
+            }           
+    	 }else{ 
+                step=btn.length-7;        
+         }
+     	timer=window.setTimeout(autoMove,3000);
+    }
+    autoMove(); 
+    oleft.onclick=function(){
+    	window.clearTimeout(timer);
+    	step++;
+    	if(step<btn.length){
+             for(var i=0; i<btn.length; i++){
+                btn[i].className="";
+                btn[step].className="ehover";
+                buttur(oInner,{left:step*-800});
+            }           
+         }else{ 
+                step=btn.length-7;        
+         }
+     }
+    oright.onclick=function(){
+    	window.clearTimeout(timer);
+    	step--;
+    	if(step<0){
+             step=btn.length;
+         }else{ 
+            for(var i=0; i<btn.length; i++){
+                btn[i].className="";
+                btn[step].className="ehover";
+                buttur(oInner,{left:step*-800}); 
+            }
+         }
+    }
+     
+   oInner.onmouseover=function(){window.clearTimeout(timer);}
+   oInner.onmouseout=function(){timer=window.setTimeout(autoMove,3000);}
+   oleft.onmouseover=function(){window.clearTimeout(timer);}
+   oleft.onmouseout=function(){timer=window.setTimeout(autoMove,3000);}
+   oright.onmouseover=function(){window.clearTimeout(timer);}
+   oright.onmouseout=function(){timer=window.setTimeout(autoMove,3000);} 
+	</script>	
+
+</div>	
+</body>
+</html>

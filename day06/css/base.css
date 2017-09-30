@@ -1,0 +1,51 @@
+*{
+    margin: 0;padding: 0;
+}
+#box{
+    width: 500px;
+    height: 500px;
+    border: 1px solid #cccccc;
+    margin: 100px auto;
+    position: relative;
+}
+#box div{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    transition: all 5s;
+}
+#a1{
+    background-color: pink;
+    top: 50px;
+    margin-left: -50px;
+}
+#a2{
+    background-color: yellow;
+    top: 150px;
+    margin-left: -150px;
+}
+#a3{
+    background-color: red;
+    top: 250px;
+    margin-left: -50px;
+}
+#a4{
+    background-color: blue;
+    top: 150px;
+    margin-left: 50px;
+}
+button{
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    font-size: 30px;
+}
+#btn_left{
+    left: 0;
+    bottom: 0;
+}
+#btn_right{
+    right: 0;
+    bottom: 0;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+/*		function fun(){//this指向的是函数的调用者，或者是事件的调用者
+			alert(this);//这个this指向的是window
+		}
+//		fun();
+		function fn(){
+			alert(this);
+		}
+//		new fn();//new就是新的意思，new一个函数，就是把函数的对象指向了一个新的对象；
+		var wzq=new fn();//就通过new运算符，把函数new给wzq这个变量
+		wzq();*/
+		function aga(){
+			this.x=10;//这个x是window的x
+		}
+		aga();
+		console.log(window.x)
+		function Person(){
+			this.x=20;//这个x变成demo的了
+		}
+		var demo = new Person();
+		var demo1 = new Person();
+		
+		//所谓的构造函数，就是我们创建一个构造函数，然后通过new关键字，来实例化我们的对象；
+		//什么是实例化，就是把我们的抽象的类变成一个实际的对象
+		//构造函数是一个类
+//		console.log(demo1.x)
+		console.log(demo.constructor==Person);//真，表示这句话没错
+		//这句话的意思，就代表，demo他是来自Person这个构造函数
+	</script>
+</html>

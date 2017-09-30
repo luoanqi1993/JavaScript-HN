@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.red{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+			}
+			.blue{
+				height: 300px;
+				width: 300px;
+				background: blue;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="red" id="red"></div>
+		<div class="blue" id="blue"></div>
+		<button id="btn">红色</button>
+		<button id="btn1">蓝色</button>
+	</body>
+	<script type="text/javascript">
+		var red=document.getElementById("red");
+		var blue=document.getElementById("blue");
+		var btn=document.getElementById("btn");
+		var btn1=document.getElementById("btn1");
+		function animate(obj,target){
+			clearInterval(obj.timer);//先清除计时器
+			//因为我们的步长不是固定，所以要没动一次改变一下步长，所以步长我们放到
+			//计时器里面，不断的重新获取一个变化的步长；
+			obj.timer=setInterval(function(){
+				//计算步长  目标值 - 盒子本身的offsetLeft / 10;
+				//例如：（400-0）/10=40；
+				//      （400-40）/10=36；
+				//       （400-76）/10=32.4；
+				var step=(target-obj.offsetLeft)/10;
+//				step=Math.round(step);//取整步长
+				step=step>0?Math.ceil(step):Math.floor(step);
+				//obj.style.left=obj本身的位置+步长
+				obj.style.left=obj.offsetLeft+step+'px';
+				console.log(obj.offsetLeft,target)
+				if(obj.offsetLeft==target){
+					clearInterval(obj.timer);
+				}
+			},30)
+		}
+		btn.onclick=function(){
+			animate(red,807);
+		}
+		btn1.onclick=function(){
+			animate(blue,813);
+		}
+	</script>
+</html>

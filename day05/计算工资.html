@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a = parseInt(prompt("请输入你现在的工资！！"));
+    var b = parseInt(prompt("请输入你现在的工龄！！"));
+    var c;
+    if(b>=5){
+        c = eval(a*(1+0.2));
+        alert(c);
+    }else if(b>=2&&b<5){
+        c = eval(a*(1+0.15));
+        alert(c);
+    }else if(b<2){
+        c = eval(a*(1+0.1));
+        alert(c);
+    }
+</script>
+</body>
+</html>

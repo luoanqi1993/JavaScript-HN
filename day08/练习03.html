@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 200px;
+            height: 400px;
+            border: 1px solid silver;
+            margin: 0 auto;
+        }
+        #aa {
+            font-size: 12px;
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <button>打印数据</button>
+    <div id="div">
+
+    </div>
+</div>
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    var div = document.getElementsByTagName("div")[1];
+    var arr = ["苹果","橘子","椰子","西瓜"];
+    btn.onclick = function(){
+        for(var i=0;i<arr.length;i++){
+            div.innerHTML += arr[i] +" "+"<a href='#' id='aa' onclick='fn("+i+")'>删除</a>"+"<br/>";
+            div.style.lineHeight = "30px";
+        }
+    };
+    function fn(index){
+        arr.splice(index,1);
+        div.innerHTML = "";
+        for(var i=0;i<arr.length;i++){
+            div.innerHTML += arr[i] +" "+"<a href='#' id='aa' onclick='fn("+i+")'>删除</a>"+"<br/>";
+            div.style.lineHeight = "30px";
+        }
+
+    }
+</script>
+</body>
+</html>

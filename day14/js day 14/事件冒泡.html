@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.d1{
+				height: 500px;
+				width: 500px;
+				background: red;
+			}
+			.d2{
+				height: 300px;
+				width: 300px;
+				background: orange;
+			}
+			.d3{
+				height: 100px;
+				width: 100px;
+				background: cyan;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var ds=document.getElementsByTagName('div');
+				ds[0].onclick=function(){
+					alert('我是第一个div');
+				}
+				ds[1].onclick=function(){
+					alert('我是第二个div');
+				}
+				ds[2].onclick=function(event){
+					var event=event||window.event;
+					if(event&&event.stopPropagation){event.stopPropagation();}else{event.cancelBubble=true;}
+					alert('我是第三个div');
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="d1">
+			<div class="d2">
+				<div class="d3">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

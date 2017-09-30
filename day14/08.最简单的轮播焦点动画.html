@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ padding:0; margin:0; list-style:none; border:0;}
+        .box{
+            width:640px;
+            height:310px;
+            padding:7px;
+            border:1px solid #ccc;
+            margin:100px auto;
+            position:relative;
+        }
+        .screen{
+            width:640px;
+            height:310px;
+            overflow:hidden;
+            position:relative;
+        }
+        .screen li{
+            width:640px; height:310px;
+            overflow:hidden;
+            float:left;
+        }
+        .screen ul{
+            position:absolute;
+            left:0; top:0;
+            width:4000px;
+        }
+        .box ol{
+            position:absolute;
+            right:10px; bottom:10px;
+            line-height:20px; text-align:center;
+        }
+        .box ol li{
+            float:left; width:20px; height:20px;
+            background:#fff;
+            border:1px solid #ccc;
+            margin-left:10px; cursor:pointer;
+        }
+        .box ol li.current{
+            background:pink;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="box">
+    <div class="screen">
+        <ul id="ul">
+            <li><img src="images/0.large.JPG" width="640" height="310" alt=""/></li>
+            <li><img src="images/1.large.jpg" width="640" height="310" alt=""/></li>
+            <li><img src="images/2.large.jpg" width="640" height="310" alt=""/></li>
+            <li><img src="images/3.large.JPG" width="640" height="310" alt=""/></li>
+            <li><img src="images/4.large.JPG" width="640" height="310" alt=""/></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+<script>
+    // 封装动画函数
+    function animate(obj,target){
+        clearInterval(obj.timer);
+        var speed = obj.offsetLeft - target <0 ? 10 : -10;
+        obj.timer = setInterval(function(){
+            var result = target - obj.offsetLeft;
+            if(Math.abs(result)<=10){
+                clearInterval(obj.timer);
+                obj.style.left = target + "px";
+            }else{
+                obj.style.left = obj.offsetLeft + speed + "px";
+            }
+        },20)
+    }
+
+    //  得到id 创建ol
+    var box = document.getElementById("box");
+    var ul = document.getElementById("ul");
+    var ulis = ul.children;
+    ul.appendChild(ulis[0].cloneNode(true));
+    var ol = document.createElement("ol");
+    box.appendChild(ol);
+
+    // 遍历得到焦点
+    for(var i = 0;i<ulis.length-1;i++){
+        var li = document.createElement("li");
+        li.innerHTML = i+1;
+        ol.appendChild(li);
+    }
+    ol.children[0].className = "current";
+
+    // 执行点击轮播动画
+    var olls = ol.children;
+    for(var i = 0;i < olls.length;i++){
+        olls[i].index = i;
+        olls[i].onclick = function(){
+            for(var j = 0;j<olls.length;j++){
+                olls[j].className = "";
+            }
+            this.className = "current";
+            animate(ul,this.index*-640);
+
+        }
+    }
+
+
+    //  执行自动轮播动画
+    var timer = null;
+    var key = 0;    //  表示显示的张数
+    var sq = 0 ; // 焦点
+    timer = setInterval(fun,3000);
+    function fun(){
+        key++;  //先让播放张数++
+        if(key>ulis.length-1){   //然后判断
+            ul.style.left = "0px";  //迅速返回
+            key = 1;  //因为第五张就是第一张，所以这时候，播放完第五章就播放第二张
+        }
+        animate(ul,key * -640);     //执行动画函数
+
+        sq++;
+        if(sq>olls.length-1){
+            sq = 0;
+        }
+        for(var i = 0;i<olls.length;i++){
+            olls[i].className = "";       //先全部清除class
+        }
+        olls[sq].className = "current";    //给当前的小圆点赋值class
+    }
+    box.onmouseover = function(){
+        clearInterval(timer);
+    };
+    box.onmouseout = function(){
+        timer = setInterval(fun,3000);
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box=document.getElementById("box")
+		window.onresize=fun(function(){
+			box.innerHTML=window.innerWidth;
+		},300)
+		function fun(fn,delay){
+			var timer=null;
+			return function(){
+				clearTimeout(timer);
+				timer=setTimeout(fn,delay)
+			}
+		}
+		
+		//首先，我们给个定时器，拖拽的300毫秒后，执行页面显示
+		//但是，我们每拖拽一次，都会清除计时器，除非你停止拖拽300毫秒，才会执行计时器
+	</script>
+</html>

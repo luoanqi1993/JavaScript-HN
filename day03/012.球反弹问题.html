@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var sum1 = 0, sum2 = 0, hight = 100.0;
+    for (var i = 0; i < 10; i++){
+        sum1 = sum1 + hight;
+        hight = hight / 2;
+        if (i < 9){
+            sum2 = sum2 + hight;
+        }
+    }
+    console.log("第10次落地时，共经过" + (sum1 + sum2) + "米");
+    console.log("第十次反弹高度为" + hight + "米");
+
+
+
+</script>
+</body>
+</html>

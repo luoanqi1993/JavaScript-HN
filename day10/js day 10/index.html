@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				position: relative;
+				margin: 50px auto;
+				left: 0px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="div" id='div'></div>
+		<button id="btn">向左</button>
+		<button id="but">向右</button>
+		<script type="text/javascript">
+			function $(id){
+				return document.getElementById(id)
+			}
+			var i=0;
+			var timer=null;
+			$('btn').onclick=function(){
+				about(false)
+			}
+			$('but').onclick=function(){
+				about(true)
+			}
+			function about(a){
+				timer=setInterval(t,1);
+				function t(){
+					a?i++:i--;//三目运算符，如果a为真，i++，如果a为假，i--;true就是真，false就是假
+					$('div').style.left=i+'px';
+					if(i>=100||i<=-100){
+						clearInterval(timer);
+					}
+				}
+			}
+				
+		</script>
+	</body>
+</html>

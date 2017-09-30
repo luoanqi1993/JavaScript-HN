@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            background: url("img/clock.jpg");
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .p{
+            width: 30px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+            left: 285px;
+        }
+        #h{
+            background:url("img/hour.png");
+            transform: rotate(0deg);
+        }
+        #min{
+            background:url("img/minute.png");
+            transform: rotate(0deg);
+        }
+        #s{
+            background:url("img/second.png");
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div id="h" class="p"></div>
+    <div id="min"  class="p"></div>
+    <div id="s"  class="p"></div>
+</div>
+</body>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+
+    setInterval(function(){
+        var mil = new Date().getMilliseconds();
+        var sec = new Date().getSeconds()+(mil/1000);
+        var mins = new Date().getMinutes()+(sec/60);
+        var hours = new Date().getHours()%12+(mins/60);
+        var sd = sec * 6;
+        var md = mins * 6;
+        var hd = hours * 30 ;
+        $("s").style.transform = "rotate("+sd+"deg)";
+        $("min").style.transform = "rotate("+md+"deg)";
+        $("h").style.transform = "rotate("+hd+"deg)";
+    },1000);
+
+    var mil = new Date().getMilliseconds();
+    var sec = new Date().getSeconds()+(mil/1000);
+    var mins = new Date().getMinutes()+(sec/60);
+    var hours = new Date().getHours()%12+(mins/60);
+    var sd = sec * 6;
+    var md = mins * 6;
+    var hd = hours * 30 ;
+    $("s").style.transform = "rotate("+sd+"deg)";
+    $("min").style.transform = "rotate("+md+"deg)";
+    $("h").style.transform = "rotate("+hd+"deg)";
+
+
+
+
+
+
+</script>
+</html>

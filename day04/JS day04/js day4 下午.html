@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				border: 1px solid red;
+			}
+			span{
+				display: inline-block;
+				height: 50px;
+				width: 50px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+<!--		<div id="btn">
+			<input type="text" id="p1"  />
+			<button id="bbb">我是按钮</button>
+			<span id="sss">我是span</span>
+		</div>-->
+		
+	</body>
+	<script type="text/javascript">
+		var p=document.getElementById('p1');
+		var btn=document.getElementById('btn');
+/*		btn.onclick=function(){
+			var that=this;
+			p.ondblclick=function(){
+				console.log(that)
+			}
+		}*/
+/*		btn.onclick=function(event){
+			var x=event.target||event.srcElement;
+			alert(x.id);
+		}*/
+		eval("x=10;y=20;document.write(x*y)");
+		document.write('<br />')
+		document.write(eval('2+2'));
+		document.write('<br />')
+		var x=10;
+		document.write(eval(x+17));
+		
+	</script>
+</html>

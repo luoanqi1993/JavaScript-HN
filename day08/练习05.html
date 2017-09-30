@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str1 = parseInt(prompt("请输入第一个数值"));
+    var str2= parseInt(prompt("请输入第二个数值"));
+    var str3 = parseInt(prompt("请输入第三个数值"));
+    var str4 = parseInt(prompt("请输入第四个数值"));
+    var str5 = parseInt(prompt("请输入第五个数值"));
+    var arr= [str1,str2,str3,str4,str5];
+    function fn(arr){
+        var sum = 0;
+        for(var i=0;i<arr.length;i++){
+            sum += arr[i];
+        }
+        return sum;
+    }
+    alert(fn(arr));
+</script>
+</body>
+</html>

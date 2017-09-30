@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				height: 100px;
+				width: 100px;
+				background: cyan;
+				border: 1px solid red;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" class="box"></div>
+		<button id="btn">缓动</button>
+	</body>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var leader = 0,target=1000;
+		var btn = document.getElementById("btn");
+		var timer = null;
+		btn.onclick = function() {
+			timer = setInterval(fun, 100);
+		}
+		
+		function fun() {
+			leader=leader+(target-leader)/10;
+			box.style.left = leader + 'px';
+			if(i >= 1000) {
+				clearInterval(timer);
+			}
+		}
+	</script>
+
+</html>

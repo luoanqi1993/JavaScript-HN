@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0}
+        ul{list-style: none;}
+        li{float: left;}
+        .navBox{background-color: pink}
+        .nav{
+            margin-right: auto;margin-left: auto;
+            width: 1000px;text-align: center;line-height: 50px;
+        }
+        .nav:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .nav a{
+            text-decoration: none;
+            display: block;
+            width: 120px;
+        }
+        .menu{
+            position: relative;
+        }
+        .content{
+            position: absolute;
+            display: none;
+            background-color: palevioletred;
+        }
+        .menu:hover .content{
+            display: block;
+        }
+        .nav a:hover{
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+<div class="navBox">
+    <ul class="nav">
+        <li class="menu">
+            <a href="">收藏夹</a>
+            <div class="content">
+                <a href="">我的宝贝</a>
+                <a href="">收藏的宝贝</a>
+            </div>
+        </li>
+        <li><a href="">卖家中心</a></li>
+        <li><a href="">联系我们</a></li>
+        <li><a href="">商城</a></li>
+    </ul>
+</div>
+</body>
+</html>

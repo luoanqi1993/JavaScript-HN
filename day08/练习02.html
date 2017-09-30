@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        button{
+            width: 50px;
+            height: 30px;
+        }
+        #box{
+            width: 160px;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+            width:160px;
+        }
+        ul li{
+            margin: 5px 0;
+        }
+        p{
+            display: inline-block;
+            width: 50px;text-align: center;
+        }
+        i{
+            font-style: normal;
+            display: inline-block;
+            width: 50px;text-align: center;
+        }
+        span{
+            display: inline-block;
+            text-align: center;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <button>姓名</button>
+    <button>年龄</button>
+    <button>成绩</button>
+    <div>
+        <ul>
+            <li>
+                <p>张三</p>
+                <i id="a1">116</i>
+                <span>9</span>
+            </li>
+            <li>
+                <p>李四</p>
+                <i id="a2">39</i>
+                <span>69</span>
+            </li>
+            <li>
+                <p>小李</p>
+                <i id="a3">15</i>
+                <span>88</span>
+            </li>
+            <li>
+                <p>小赵</p>
+                <i id="a4">17</i>
+                <span>28</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    function $(tag){
+        return document.getElementsByTagName(tag);
+    }
+    function fn(id){
+        return document.getElementById(id).innerHTML;
+    }
+    var  a1 = Number(fn("a1")),a2= Number(fn("a2")),a3 = Number(fn("a3")),a4= Number(fn("a4"));
+    var arr = [a1,a2,a3,a4];
+    var lis = $("li");
+
+    $("button")[1].onclick = function(){
+        for(var i=0;i<arr.length-1;i++){
+            for(var j=0;j<arr.length-1-i;j++){
+                if(arr[j]>arr[j+1]){
+                    var sum = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = sum;
+                }
+            }
+        }
+        console.log(arr);
+    }
+</script>
+</body>
+</html>

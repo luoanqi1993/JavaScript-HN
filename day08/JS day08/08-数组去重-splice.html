@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重-splice</title>
+</head>
+<body>
+	<script>
+	/*数组去重*/
+	var arr = [1,2,2,2,4,31,2,2,2,4,3]
+
+
+	/*遇到两两比较的时候就想到两个for循环*/
+	/*有重复的就删除掉*/
+	for(var i= 0;i<arr.length;i++){
+		for(var j = i+1;j<arr.length ;j++){
+			/*有重复（相等）的才能进if（条件）*/
+			if(arr[i] == arr[j]){
+				arr.splice(j,1)
+				j--;
+			}
+		}
+	}
+	console.log(arr)
+
+
+
+	</script>
+</body>
+</html>

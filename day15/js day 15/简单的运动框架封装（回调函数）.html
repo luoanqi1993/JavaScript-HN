@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.red {
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+				border-radius: 50%;
+				opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn" style="height: 50px;width: 100px;">你跟得上我的speed吗？</button>
+		<button id="btn1" style="height: 50px;width: 100px;">我肯定跟得上你的speed!</button>
+		<div class="red" id="red"></div>
+	</body>
+	<script type="text/javascript">
+		var red = document.getElementById("red");
+		var btn = document.getElementById("btn");
+		var btn1 = document.getElementById("btn1");
+		btn.onclick = function() {
+			animate(red, {left: 450,top: 800,width: 150,height: 150,borderRadius:75,opacity:0.1},function(){
+				animate(red, {left: 1200,top: 250,width: 300,height: 300,borderRadius:100,opacity:0.1})
+			})
+		}
+		btn1.onclick = function() {
+		}
+		//封装函数获取属性
+		function getStyle(obj, attr) { //获取谁的，哪个属性
+			if(obj.currentStyle) { //如果浏览器识别这句话，就会返回TRUE，就会执行语句，就代表是IE浏览器
+				return obk.currentStyle[attr];
+			} else { //如果不识别上面那句话，那就不是IE，就是其他标准浏览器
+				return window.getComputedStyle(obj, null)[attr];
+			}
+		}
+		
+		
+		//多个属性运动框架，并且添加回调函数
+		function animate(obj,json,fn){
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				var flag = true;
+				
+				for(var attr in json){
+					var current = parseInt(getStyle(obj,attr));
+					
+					var step = (json[attr] - current)/10;
+					step = step>0?Math.ceil(step):Math.floor(step);
+					obj.style[attr] = current + step + 'px';
+					if(current!=json[attr]){
+						flag=false;
+					}
+					
+				}
+				
+				if(flag){
+					clearInterval(obj.timer);
+					console.log('清除计时器')
+					if(fn){
+						fn();
+					}
+				}
+				
+				
+				
+				
+				
+			},10);
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+	</script>
+
+</html>

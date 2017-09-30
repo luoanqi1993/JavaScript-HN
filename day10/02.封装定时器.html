@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        .div{
+            height: 100px;
+            width: 100px;
+            background: red;
+            position: relative;
+            margin: 50px auto;
+            left: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="div" id='div'></div>
+<button id="btn">向左</button>
+<button id="but">向右</button>
+<script type="text/javascript">
+    function $(id){
+        return document.getElementById(id)
+    }
+    var i=0;
+    var timer=null;
+    $('btn').onclick=function(){
+        fn(false)
+    };
+    $('but').onclick=function(){
+        fn(true);
+    };
+
+    function fn(n){
+        time = setInterval(t,1);
+        function t(){
+            n?i++:i--;
+            $('div').style.left=i+'px';
+            if(i<=-100||i>=100){
+                clearInterval(time);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

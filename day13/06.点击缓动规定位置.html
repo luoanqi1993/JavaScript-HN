@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .box{
+            position: fixed;
+            top: 0;
+            left: 100px;
+        }
+        .box div{
+            width: 50px;
+            height: 50px;
+            border: 1px solid yellow;
+            cursor: pointer;
+        }
+        .box .tp{
+           border-top: none;
+        }
+        .one,.b1{
+            background: pink;
+        }
+        .two,.b2{
+            background: cornflowerblue;
+        }
+        .three,.b3{
+            background: cyan;
+        }
+        .four,.b4{
+            background: cornsilk;
+        }
+        .five,.b5{
+            background: orchid;
+        }
+        .cur{
+            width: 100%;
+            height: 100%;
+        }
+        .cur div{
+            font-size: 30px;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box" id="box">
+    <div class="one" >首页</div>
+    <div class="two tp" >商城</div>
+    <div class="three tp" >关于</div>
+    <div class="four tp" >我的</div>
+    <div class="five tp">收藏</div>
+</div>
+<div class="cur" id="cur">
+    <div class="a b1">首页</div>
+    <div class="a b2">商城</div>
+    <div class="a b3">关于</div>
+    <div class="a b4">我的</div>
+    <div class="a b5">收藏</div>
+</div>
+</body>
+<script src="JavaScript/base.js"></script>
+<script>
+    var box = document.getElementById("box");
+    var cur = document.getElementById("cur");
+    var divs = box.getElementsByTagName("div");
+    var divs2 = cur.getElementsByTagName("div");
+    var timer = null;
+    var leader = 0,target = 0;
+
+    for(var i = 0;i<divs.length;i++){
+        divs[i].index = i;  //通过创建index属性，赋予每一个 divs 一个索引号
+        divs[i].onclick = function(){
+            clearInterval(timer);
+            target = divs2[this.index].offsetTop; //通过索引值，获取 divs2 的offsetTop
+            timer=setInterval(function(){
+                leader=leader+(target-leader)/10;
+                window.scrollTo(0,leader);//屏幕滑动
+                if(Math.round(leader)==target){//当启始值等于目标值，就表示到达目的了，就清除计时器
+                    clearInterval(timer);
+                }
+            },30);
+        }
+    }
+
+
+
+</script>
+</html>

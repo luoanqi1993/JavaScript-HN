@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box"></div>
+		<button id="btn">给我动起来</button>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementById("btn");
+		var box=document.getElementById("box");
+		var timer=null;
+		var speed=10;
+		//动画基本原理：盒子的offsetLeft+ 步长
+		btn.addEventListener('click',function(){//绑定事件，就是当btn触发click事件的时候，给他绑定一个函数
+			timer=setInterval(function(){
+				box.style.left=box.offsetLeft+speed+'px';
+				console.log(box.offsetLeft)
+				if(box.offsetLeft>400){
+					clearInterval(timer);
+				}
+			},50);
+		});
+	</script>
+</html>

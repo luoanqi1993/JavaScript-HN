@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 400px;
+            height: 200px;
+            border: 1px solid silver;
+            margin: 100px auto;
+            color: #666;
+        }
+        .one{
+            margin: 10px 0 0 10px;
+            font-size: 20px;
+        }
+        .two{
+            text-align: center;
+            font-size: 80px;
+            margin: 15px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box" id="box">
+    <div class="one"></div>
+    <div class="two"></div>
+</div>
+<script>
+    var box = document.getElementById("box");
+    var divs = box.getElementsByTagName("div");
+    var t = new Date();
+    var date = t.getDate();  //  日    1-31
+    var day = t.getDay();     //  星期    0-6
+    var month = t.getMonth();      //   月份 0-11
+    var year = t.getFullYear();    //   年
+    var hours = t.getHours();     //  小时   0-23
+    var min = t.getMinutes();    //    分钟   0-59
+    var s = t.getSeconds();      //     秒    0-59
+
+    var ms = t.getMilliseconds();   //   毫秒   一秒是1000毫秒
+    var time = t.getTime();           //  获取累计毫秒数 ， 从1970.1.1午夜开始计算到现在
+
+    var str = "日一二三四五六";
+    if(min<10){
+        min = "0" + min;
+    }
+    if(s<10){
+        s = "0" + s;
+    }
+    divs[0].innerHTML = year + "年" + (month+1) + "月" + date + "日" +"&nbsp;&nbsp;&nbsp;" + "星期"+ str[day];
+    divs[1].innerHTML = hours + ":" + min + ":" + s;
+    setInterval(function(){
+        var box = document.getElementById("box");
+        var divs = box.getElementsByTagName("div");
+        var t = new Date();
+        var date = t.getDate();  //  日    1-31
+        var day = t.getDay();     //  星期    0-6
+        var month = t.getMonth();      //   月份 0-11
+        var year = t.getFullYear();    //   年
+        var hours = t.getHours();     //  小时   0-23
+        var min = t.getMinutes();    //    分钟   0-59
+        var s = t.getSeconds();      //     秒    0-59
+
+        var ms = t.getMilliseconds();   //   毫秒   一秒是1000毫秒
+        var time = t.getTime();           //  获取累计毫秒数 ， 从1970.1.1午夜开始计算到现在
+
+        var str = "日一二三四五六";
+        if(min<10){
+            min = "0" + min;
+        }
+        if(s<10){
+            s = "0" + s;
+        }
+        divs[0].innerHTML = year + "年" + (month+1) + "月" + date + "日" +"&nbsp;&nbsp;&nbsp;" + "星期"+ str[day];
+        divs[1].innerHTML = hours + ":" + min + ":" + s;
+    },1000);
+
+</script>
+</body>
+</html>

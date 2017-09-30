@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        .box{
+            width: 100%;
+            height: 470px;
+            position: relative;
+            overflow: hidden;
+          }
+        ul{
+            list-style: none;
+            position: absolute;
+        }
+        li{
+            width: 13440px;
+        }
+        img{
+            height: 470px; float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul id="ul">
+        <li><img src="images/banner_1.jpg" alt=""/></li>
+        <li><img src="images/banner_2.jpg" alt=""/></li>
+        <li><img src="images/banner_3.jpg" alt=""/></li>
+        <li><img src="images/banner_4.jpg" alt=""/></li>
+        <li><img src="images/banner_5.jpg" alt=""/></li>
+        <li><img src="images/banner_6.jpg" alt=""/></li>
+        <li><img src="images/banner_1.jpg" alt=""/></li>
+    </ul>
+</div>
+</body>
+<script>
+    var ul = document.getElementById("ul");
+    var time = null;
+    var n = 0;     //  图片索引
+    var left = 0;  //  向右动的距离
+    setTimeout(fun,3000);
+    function fun(){
+        n--;
+        if(n<-6){
+            n = -1;
+            left = 0;    // 重置
+            ul.style.left = "0px";   //  重置
+        }
+        time = setInterval(function(){
+            left--;
+            ul.style.left = left + "px";
+            if(left <= n*1920){
+                clearInterval(time);
+                setTimeout(fun,3000);
+            }
+        },1);
+    }
+
+</script>
+</html>

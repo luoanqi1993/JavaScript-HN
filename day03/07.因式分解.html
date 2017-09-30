@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var n=parseInt(prompt("请输入一个正整数："));
+//    var flag=0;
+//    for(var i=2;i<=n;i++){
+//        if(n%i==0){
+//            flag++;
+//            if(flag==1){
+//                document.write(n+"="+i);
+//            }else{
+//                document.write("×"+i);
+//            }
+//            n=n/i;
+//            i--;
+//        }
+//    }
+//    if(flag==0){
+//        document.write(n+"为质数");
+//    }else{
+//        document.write("共有"+flag+"个质因数");
+//    }
+
+   var n = parseInt(prompt("请输出一个整数"));
+    var a = 0;
+    for(var i=2;i<=n;i++){
+        if(n%i==0){
+            a++;
+            if(a==1){
+                document.write(n+"="+i);
+            }else{
+                document.write("×"+i);
+            }
+            n=n/i;
+            i--;
+        }
+    }
+
+
+//    var n = parseInt(prompt("请输入一个整数"));
+//    var k = 2;
+//    while(k<=n){
+//        if(k==n){
+//            console.log(n);
+//            break;
+//        }else if(n%k==0){
+//            console.log(k);
+//            n=n/k;
+//        }else{
+//            k++;
+//        }
+//    }
+</script>
+</body>
+</html>

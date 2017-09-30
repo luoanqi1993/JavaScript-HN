@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			console.log(screen.availHeight)
+//			console.log(navigator.userAgent)	
+			function browser(){
+				var u_agent=navigator.userAgent;
+				var browser_name='未知浏览器';
+				if(u_agent.indexOf('Firefox')>-1){
+					browser_name='Firefox';
+				}else if(u_agent.indexOf('Chrome')>-1){
+					browser_name='Chrome';
+				}
+				
+				
+				document.write('浏览器类型为'+browser_name+'<br />');
+			}
+			
+			browser()
+		</script>
+	</body>
+</html>

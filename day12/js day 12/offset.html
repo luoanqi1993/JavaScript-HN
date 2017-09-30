@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width:400px;
+				border:50px solid red;
+				position: relative;
+			}
+			span{
+				height: 400px;
+				widows: 200px;
+				padding: 15px;
+				display: inline-block;
+				background: yellow;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div">
+			<div>
+				<img src="img/1.jpg"/>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var div=document.getElementsByTagName('div')[0];
+		var div1=document.getElementsByTagName('div')[1];
+//		div.children[0].style.width='100px';
+//		console.log(div.children[0].style.width);
+//		console.log(div.offsetWidth);
+//		console.log(div1.offsetTop);
+//		console.log(div1.offsetParent)
+		console.log(div1.offsetWidth)
+		div1.offsetWidth='800px'
+	</script>
+</html>

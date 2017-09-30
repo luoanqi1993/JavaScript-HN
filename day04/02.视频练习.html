@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        .box{
+            margin-left: 100px;
+            position: relative;
+        }
+        #s1{
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-left-color:blue;
+            display: inline-block;
+            position: absolute;
+            left: -10px;
+            top: 16px;
+            transform: rotate(0deg);
+        }
+        .up{
+            color: blue;
+            font-size: 36px;
+            display: inline-block;
+            margin-left: 10px;
+            position: relative;
+            width: 120px;
+        }
+        .down{
+            position: absolute;
+            display: none;
+        }
+        a{
+            text-decoration: none;
+            color: #666;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="s" id="s1"></div>
+
+        <div class="up">视频
+            <div class="down" id="a1">
+                <a href="#">我的视频</a>
+                <a href="#">收藏视频</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var s1 = document.getElementById("s1");
+    var a1 = document.getElementById("a1");
+    var a = 0;
+    var b = 45;
+    var up = "none";
+    var down = "block";
+    s1.onclick = function(){
+        var t = a;
+        a = b;
+        b = t;
+        s1.style.transform = "rotate("+a+"deg)";
+
+        t = up;
+        up = down;
+        down = t;
+        a1.style.display = up;
+    }
+</script>
+</html>

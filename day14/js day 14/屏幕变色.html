@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="client.js" ></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			console.log(client().width)
+			var body=document.getElementsByTagName('body');
+			window.onresize=function(){
+				if(client().width>960){
+					body[0].style.background='red';
+				}else if(client().width<960&&client().width>600){
+					body[0].style.background='orange';
+				}else{
+					body[0].style.background='cyan'
+				}
+			}
+		}
+	</script>
+</html>

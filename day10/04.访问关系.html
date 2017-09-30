@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div">
+    <ul id="ul">
+        <li id="li1"></li>
+        <li id="li2"><p></p></li>
+        <li id="li3"></li>
+        <li id="li4"></li>
+
+    </ul>
+</div>
+</body>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+//    console.log($("ul").parentNode);   //  父亲节点
+//    console.log($("li2").nextSibling);  // 下个兄弟元素，因为是文档流，所以两个 li 要在一起
+//    console.log($("li2").nextSibling.nextSibling);  // 如果两个li 不写在一起。就可以这样得到下个兄弟元素
+//    console.log($("li3").nextElementSibling);   // 得到下个元素节点
+//    console.log($("li3").previousSibling);   // 得到上个元素节点  因为是文档流，所以两个 li 要在一起
+//    console.log($("li4").previousSibling.previousSibling);  // 如果两个li 不写在一起。就可以这样得到下个兄弟元素
+
+
+//    console.log($("ul").firstChild);    //  第一个子节点
+//    console.log($("ul").firstElementChild);   //   第一个元素子节点
+//    console.log($("ul").lastChild);      //  最后一个子节点
+//    console.log($("ul").lastElementChild);        //   最后一个元素子节点
+//    console.log($("ul").childNodes);      // 获取所有的子节点
+
+    console.log($("ul").children);      // 获取所有的元素子节点      //  重点
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// join（可以分割数组，可以把数组转换为字符串）
+	// 
+	//作用是将数组各个元素通过指定的分隔符进行连接成为一个字符串
+	//indexOf lastIndexOf 数组和字符串都用这个方法
+	//如果有返回数组内元素对应的索引值
+	//如果没有返回-1
+	//var arr = [1,2,3,34,1,3]
+	//var arr = ["薛欢欢","薛之前","薛仁贵","薛之谦","高磊鑫","薛欢欢","薛之前","薛仁贵","薛之谦","高磊鑫"]
+	//从前面（头部）查找	到的第一个 元素对应的索引值
+	// console.log(arr.indexOf("薛之谦"))
+	// console.log(arr.indexOf("薛之前"))
+	// console.log(arr.indexOf("薛雪雪"))
+	// console.log(arr.indexOf("薛宝钗"))
+	 
+	//从后面（尾部）查找 到的第一个 元素对应的索引值
+	// console.log(arr.lastIndexOf("薛之谦"))
+	// console.log(arr.lastIndexOf("薛之前"))
+	// console.log(arr.lastIndexOf("薛雪雪"))
+	// console.log(arr.lastIndexOf("薛宝钗"))
+	// 
+	// indexOf lastIndexOf  区别只是查找的方式顺序不同 indexOf是从前到后，lastIndexOf是从后到前面,返回的都是元素对应的索引值
+	// 
+	 
+	//index索引值（从0开始）
+	//indexOf() 这个是方法，返回查找到元素对应的索引值 
+	
+	var arr = [1,1,1,1,2,2,3,4,5]
+	//数组去重
+
+
+        var arr1=arr.slice(3);
+        var arr2=arr1[0]+","+arr1[2];
+        var arr3=arr2.split(",");
+        console.log(arr3);
+
+	</script>
+</body>
+</html>

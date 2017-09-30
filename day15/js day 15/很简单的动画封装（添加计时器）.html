@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.red {
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn" style="height: 50px;width: 100px;">你跟得上我的speed吗？</button>
+		<button id="btn1" style="height: 50px;width: 100px;">我肯定跟得上你的speed!</button>
+		<div class="red" id="red"></div>
+	</body>
+	<script type="text/javascript">
+		var red = document.getElementById("red");
+		var btn = document.getElementById("btn");
+		var btn1 = document.getElementById("btn1");
+		btn.onclick = function() {
+			animate(red, {
+				left: 450,
+				top: 800,
+				width: 150,
+				height: 150,
+				borderRadius:0
+			})
+		}
+		btn1.onclick = function() {
+			animate(red, {
+				left: 1200,
+				top: 250,
+				width: 300,
+				height: 300,
+				borderRadius:100
+			})
+		}
+		//封装函数获取属性
+		function getStyle(obj, attr) { //获取谁的，哪个属性
+			if(obj.currentStyle) { //如果浏览器识别这句话，就会返回TRUE，就会执行语句，就代表是IE浏览器
+				return obk.currentStyle[attr];
+			} else { //如果不识别上面那句话，那就不是IE，就是其他标准浏览器
+				return window.getComputedStyle(obj, null)[attr];
+			}
+		}
+
+		function animate(obj, json) { //给谁添加动画，改变哪些属性；
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function() {
+				
+				var flag = true;
+				
+				for(var attr in json) {
+					//console.log(json[attr]);json[attr]就是我们的目标值==target;
+					var current = parseInt(getStyle(obj, attr));//就是我们的初始值，和以前的offsetLeft一个意思；
+					var step = (json[attr] - current)/10;
+					step=step>0?Math.ceil(step):Math.floor(step);
+					obj.style[attr] = current + step + 'px';
+//					if(json[attr] == current){
+//						clearInterval(obj.timer);
+//					}
+					if(current!=json[attr]){//多个条件有一个不满足就不停止计时器
+						flag=false;
+					}
+				}
+				
+				
+				
+				
+				if(flag){
+					clearInterval(obj.timer);
+				}
+				
+				
+				
+				
+			}, 30);
+		}
+	</script>
+
+</html>

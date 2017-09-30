@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html{
+				width: 100%;
+				height: 100%;
+			}
+			body{
+				margin: 0;
+				height: 100%;
+			}
+			.bigbox{
+				width: 1280px;
+			}
+			.bigbox img{
+				float: left;
+			}
+			.mask{
+				width: 100%;
+				height: 100%;/*css里面，heigh100%是继承父元素把，*/
+				opacity: 0.5;
+				background: #555;
+				z-index: 1;
+				display: none;
+			}
+			.current{
+				position: absolute;
+				z-index: 2;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bigbox" id="bigbox">
+			<img src="images/1.jpg"/>
+			<img src="images/2.jpg"/>
+			<img src="images/3.jpg"/>
+			<img src="images/4.jpg"/>
+		</div>
+		<div class="mask" id="mask"></div>
+	</body>
+	<script type="text/javascript">
+		var bigbox=document.getElementById("bigbox");
+		var imgs=bigbox.getElementsByTagName('img');
+		var mask=document.getElementById("mask");
+		var timer=null;//初始化计时器
+		var initWitdh=256;//设置图片的初始大小；
+		var fWidth=1000;//设置图片放大后的宽度；
+		for(var i=0;i<imgs.length;i++){//循环遍历四张图片，分别加上onclick事件
+			imgs[i].onclick=function(){//给每张图片加上onclick事件
+				var curImg=this.cloneNode(true);//克隆当前点击的那张图片
+				document.body.appendChild(curImg);//给文档下面的body添加子元素
+//				curImg.setAttribute('class','current');
+				curImg.className='current';//给克隆并且添加上的子元素一个class，让他居中
+				mask.style.display='block';//让我们事先写好的遮罩出来
+				animate(curImg,fWidth);//调用变大变小的动画函数
+				curImg.onclick=function(){//给放大后的图片添加点击事件
+					var that=this;//把当前对象存在that变量里面，方便其他函数调用
+					animate(that,initWitdh,function(){//调用动画函数，第一个参数穿curImg，第二参数穿放大的目标，第三个参数，回调函数
+						that.parentNode.removeChild(that);//删除curImg的爸爸的儿子，也就是删除自己
+						mask.style.display='none';//让遮罩小时
+					})
+				}
+			}
+		}
+		
+		function animate(obj,dest,fun){//封装动画函数，穿三个参数，第一个，让谁动，第二个，目标值，第三个，缩小后消失的回调函数；
+			clearInterval(timer);//清除计时器，防止重复调用
+			var speed;//步长
+			timer=setInterval(function(){//执行计时器
+				speed=(dest-obj.offsetWidth)/8;
+				//设置步长，相当于缓动动画
+				if(speed>0){//当步长是正数，就向上取整
+					speed=Math.ceil(speed);//向上取整，天花板函数；
+				}else{//当步长是负数，向下取整
+					speed=Math.floor(speed);//向下取整，地板函数
+				}
+				//因为会无限接近想要的数，而不会等于想要的数，所以我们自己取整；
+				if(obj.offsetWidth!=dest){//如果图片宽度不等于我们想要的宽度，目标宽度
+					obj.style.width=obj.offsetWidth+speed+'px';//就让他增加或减少
+				}else{//否则，就是图片宽度和目标宽度相等，那么，就停止计时器
+					clearInterval(timer);
+					if(fun){//如果有回调函数就执行，没有就不执行
+						fun();
+					}
+				}
+			},30);
+		}
+	</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<h1 id="title">ThinkPad黑侠E570</h1>
+<div id="des">联想（ThinkPad）黑侠E570 GTX（1NCD）游戏笔记本（i5-7200U 4G 500G+128G SSD GTX950M 2G独显 FHD Win10）</div>
+<div id="pri">4500</div>
+<button id="buy">购买</button>
+</body>
+<script type="text/javascript">
+
+    function $(id){return document.getElementById(id)}
+
+    function Person(name,text,money){
+        this.name=name;
+        this.text=text;
+        this.money=money;
+        this.showBuy=function(){
+            alert("购买成功");
+        }
+    }
+
+    var fn = new Person("今锦上阳澄湖大闸蟹", "今锦上 阳澄湖大闸蟹礼券1588型 公蟹4.0两/只 母蟹3.0两/只 4对8只螃蟹 海鲜水产", 418);
+    $("title").innerHTML=fn.name;
+    $("des").innerHTML=fn.text;
+    $("pri").innerHTML=fn.money;
+    $("buy").onclick=fn.showBuy;
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>出现超过两次及以上的元素</title>
+</head>
+<body>
+	<script>
+	var arr = [1,2,3,4,5,6,12,3,3,3,5,4,1]
+	var arr = [1,2,3,4,5,6,12,3,3,3,5,4,1]
+	var arr = [1,2,3,4,5,6,12,3,3,3,5,4,1]
+	var arr1 = []
+	console.log(arr.length)
+	for(var i =0;i<arr.length;i++){
+		//indexOf 和 lastIndexOf   查找 （只是查找顺序不同）
+		//如果有返回对应的索引值
+		if (arr.indexOf(arr[i]) < arr.lastIndexOf(arr[i])) {
+				arr1.push(arr[i])			
+		}
+	}
+		console.log(arr1)
+
+	</script>
+</body>
+</html>

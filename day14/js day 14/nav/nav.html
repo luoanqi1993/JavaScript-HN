@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="nav1.css" id="link" />
+	</head>
+	<body>
+		<div class="nav">
+			<h1 id="h1" class="h1">Bootstrap</h1>
+			<button id="btn" class="btn"></button>
+		</div>
+		<ul>
+			<li>Bootstrap</li>
+			<li>标准模式</li>
+			<li>怪异模式</li>
+			<li>怪异模式</li>
+			<li>改变窗口事件</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="client.js" ></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var link=document.getElementById("link");
+			var btn=document.getElementById("btn");
+			var ul=document.getElementsByTagName('ul')[0];
+			var flag=true;
+			window.onresize=function(){
+				if(client().width<580){
+					link.href='nav2.css';
+				}else{
+					link.href='nav1.css';
+				}
+			}
+			btn.onclick=function(){
+				if(flag){
+					ul.style.display='block';
+				}else{
+					ul.style.display='none';
+				}
+				flag?flag=false:flag=true;
+			}
+		}
+	</script>
+</html>

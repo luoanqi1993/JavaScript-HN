@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height: 100px;
+				width: 100px;
+				background: cyan;
+				border: 1px solid red;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" class="box1"></div>
+		<a href="javascript:" id="a">跳转</a>
+		<input type="password"  id="txt"/>
+	</body>
+	<script type="text/javascript">
+		var box=document.getElementById("box");
+		var a=document.getElementById('a');
+		var txt=document.getElementById("txt")
+		alert(box.getAttribute('class'));
+		box.setAttribute('class','xhr');
+		alert(box.getAttribute('class'));
+		box.removeAttribute('class');
+		alert(box.getAttribute('class'));
+	</script>
+</html>

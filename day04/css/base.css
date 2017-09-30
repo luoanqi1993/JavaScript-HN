@@ -1,0 +1,35 @@
+.box {
+    width: 300px;
+    border: 1px solid silver;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.box input {
+    height: 50px;
+    margin: 3px 0;
+    width: 70px;outline: none;
+}
+#num input:hover{
+    background-image: url("../img/btn.png");
+}
+#btn:hover{
+    background-image: url("../img/btn.png");
+}
+#clear:hover{
+    background-image: url("../img/btn.png");
+}
+#input {
+    width: 290px;
+    text-align: right;
+}
+
+#chu,#btn,#clear{
+    width: 144px;
+}
+#btn,#clear{
+    margin: 0 0 3px 0;
+    height: 50px;
+}
+
+

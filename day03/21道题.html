@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/*//2
+	    for (var i=1;i<1000000;i++){
+	        var x=parseInt(Math.sqrt(i+100));
+	        var y=parseInt(Math.sqrt(i+268));
+	        if(x*x===(i+100)&&y*y===(i+268)){
+	        	console.log(i)
+	        }
+	    }*/
+	   	/*//3
+	  	var x=parseFloat(prompt('请输入第一个整数：'));
+	   	var y=parseFloat(prompt('请输入第二个整数：'));
+	   	var z=parseFloat(prompt('请输入第三个整数：'));
+	   	var t;
+	   	if(x>y){
+	   		t=x;
+	   		x=y;
+	   		y=t;
+	   	}
+	   	if(x>z){
+	   		t=z;
+	   		z=x;
+	   		x=t;
+	   	}
+	   	if(y>z){
+	   		t=y;
+	   		y=z;
+	   		z=t;
+	   	}
+	   	console.log(x,y,z);*/
+/*	   	//4
+	   	for(i=1;i<=9;i++){
+			for(j=1;j<=i;j++){
+					document.write(i+"x"+j+"="+i*j +" ");
+				}document.write("<br/>")
+		}*/
+		
+		/*//5
+		var f1,f2;    
+		f1=f2=1;   
+		for(var i=1;i<=12;i++){
+			console.log("第"+(i*2-1)+"个月有"+f1+"对兔子");
+			console.log("第"+(i*2)+"个月有"+f2+"对兔子");
+		    f1=f1+f2; //这个月等于前两个月之和  
+		    f2=f1+f2; //这个月等于前两个月之和  
+		} */  
+		/*//6
+		for(var i=100;i<=999;i++){
+			var a=parseInt(i/100);
+			var s=parseInt((i/10)%10);
+			var d=i%10;
+			if(a*a*a+s*s*s+d*d*d==i){
+				console.log(i);
+			}
+		}*/
+		
+		/*//7
+		var n=parseInt(prompt("请输入一个正整数："));
+		var flag=0;
+		for(var i=2;i<=n;i++){
+			if(n%i==0){
+				flag++;
+				if(flag==1){
+					document.write(n+"="+i);
+				}else{
+					document.write("×"+i);
+				}
+				n=n/i;
+				i--;
+			}
+		}
+		if(flag==0){
+			document.write(n+"为质数");
+		}else{
+			document.write("共有"+flag+"个质因数");
+		}*/
+		//8 略
+		//9 需要while循环，略
+		//10需while循环，略
+		/*//11
+		var i,j,sum;
+	    for(i=6;i<=1000;i++){
+	        sum=1;
+	        for(j=2;j<i;j++){
+	            if(i%j==0){
+	                sum+=j;
+	            }
+	        }
+	        if(i==sum){
+	            console.log("完数为："+i);
+	            console.log(1);
+	            for( j=2; j<i; j++ ){
+	                if(i%j == 0){
+	                    console.log(j);
+	                }
+	            }
+	        }
+	    }*/
+		/*//12
+        var sum1 = 0, sum2 = 0, hight = 100.0;
+        for (var i = 0; i < 10; i++){
+            sum1 = sum1 + hight;
+            hight = hight / 2;
+            if (i < 9){
+                sum2 = sum2 + hight;
+            }
+        }
+        console.log("第10次落地时，共经过" + (sum1 + sum2) + "米");
+        console.log("第十次反弹高度为" + hight + "米");*/
+		/*//13
+		var total = 1; 
+        var day = 10; 
+        for(var i = 10;i > 0;i--){ 
+            console.log("第"+day+"天,有桃子"+total+"颗"); 
+            total = (total + 1) * 2; 
+            day--; 
+        } */
+	   	/*//14
+	   	for(var i =1;i<=3;i++){
+		    for(var j =1;j<=3;j++){
+		        if(i!=j)//这里放一个判断，比赛队员不能重复比赛，判断写在外面又可以减少循环次数
+		            for(var k = 1;k<=3;k++){
+		                if(i!=k&&j!=k)//同上，排除相同
+		                    if(i!=1&&k!=1&&k!=3)//这里根据题意排除掉不符合的名单
+		                        console.log("a和"+i+"\n"+"b和"+j+"\n"+"c和"+k+"\n");
+		            }
+		    }
+		}*/
+	    /*//15
+		var s=0;
+		for(var i=1;i<=20;i++){
+			s=s+i*i;
+		}
+		console.log(s);*/
+		//16
+		/*var  a=10;
+		for(var i=5;i>1;i--){
+			a=a+2;
+			console.log(a);
+		}*/
+		/*//17
+		var a,b,c,d,e; 
+		var x=parseInt(prompt('请输入一个正整数'));
+		a=parseInt(x/10000);
+		b=parseInt(x%10000/1000);
+		c=parseInt(x%1000/100);
+		d=parseInt(x%100/10);
+		e=parseInt(x%10);
+		if (a!=0){
+			console.log("这是五位数，逆序为：",e,d,c,b,a);
+		}else if (b!=0){
+			console.log("这是四位数，逆序为：",e,d,c,b);
+		}else if (c!=0){
+			console.log("这是三位数，逆序为：",e,d,c);
+		}else if (d!=0){
+			console.log("这是两位数，逆序为：",e,d);
+		}else if (e!=0){
+			console.log("这是一个个位数：",e);
+		}*/
+		//18 用switch case写，略过
+		//19、20都略过，后面做
+		</script>
+	</body>
+</html>

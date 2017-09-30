@@ -1,0 +1,24 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WSIOdGtkKFr5PoIWT4vDGUyp4iR1hfqL"></script>
+	<title>浏览器定位</title>
+</head>
+<body>
+</body>
+</html>
+<script type="text/javascript">
+	navigator.geolocation.getCurrentPosition(function(position){//获取坐标的方法函数，BOM内置对象
+		console.log(position.coords.latitude+'和'+position.coords.longitude);//打印经纬度
+		var lat=position.coords.latitude;
+		var lon=position.coords.longitude;
+		var point=new BMap.Point(position.coords.longitude,position.coords.latitude);//创建百度地图的左边点对象，将浏览器获取的经纬度传进去
+		var myGeo=new BMap.Geocoder();//实例化一个坐标点转换地址的对象
+		myGeo.getLocation(point,function(result){
+			var city=result.addressComponents.city;//将左边点转换成地理位置；
+			alert(city);
+		});
+		
+	});
+</script>

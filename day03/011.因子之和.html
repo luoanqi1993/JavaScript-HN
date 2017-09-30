@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var i,j,sum;
+    for(i=6;i<=1000;i++){
+        sum=1;
+        for(j=2;j<i;j++){
+            if(i%j==0){
+                sum+=j;
+            }
+        }
+        if(i==sum){
+            console.log("完数为："+i);
+            console.log(1);
+            for( j=2; j<i; j++ ){
+                if(i%j == 0){
+                    console.log(j);
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

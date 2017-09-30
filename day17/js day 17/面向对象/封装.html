@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		//刚刚，我们讲了使用一个对象，那么很多个对象。就要用到封装
+		function Person(name,age){
+			var obj={};//声明对象
+			obj.name=name;//通过传参传进来的name赋值给对象的name;
+			obj.age=age;
+			obj.showName=function(){
+				alert('我叫：'+name);
+			}
+			obj.showAge=function(){
+				alert('我今年'+age+'岁');
+			}
+			return obj;
+			
+			
+		}
+		
+		var wzq=Person('吴泽权',18);
+		var xhh=Person('薛欢欢',19);
+		console.log(wzq.constructor==Person)
+//		console.log(wzq,xhh)
+//		console.log(xhh.name)
+//		xhh.showName();
+		/*这就是封装，但是这只是函数封装，并不是对象封装*/
+		
+		
+	</script>
+</html>

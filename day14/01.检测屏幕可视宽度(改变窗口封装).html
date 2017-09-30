@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // screen.availWidth  获取整个屏幕的宽度，和你浏览器大小无关
+    //  document.body.clientWidth  获取浏览器可见区域的宽度
+
+
+    // 改变窗口大小事件：
+    function onresize(){
+        if(window.innerWidth != null){
+            return {
+                width:window.innerWidth,
+                height:window.innerHeight
+            }
+        }else if(document.compatMode == "CSS1Compat"){
+            return {
+                width:document.documentElement.clientWidth,
+                height:document.documentElement.clientHeight
+            }
+        }else{
+            return {
+                width:document.body.clientWidth,
+                height:document.body.clientHeight
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

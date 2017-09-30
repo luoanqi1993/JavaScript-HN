@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: relative;
+        }
+        button{
+            width: 100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<button id="b1">←</button>
+<button id="b2">→</button>
+<div id="box"></div>
+</body>
+<script>
+    var b1 = document.getElementById("b1");
+    var b2 = document.getElementById("b2");
+    var box = document.getElementById("box");
+    b2.onclick = move(20);
+    b1.onclick = move(-20);
+
+    function move(speed){
+        return function(){
+            box.style.left = box.offsetLeft + speed + "px";
+        }
+    }
+</script>
+</html>

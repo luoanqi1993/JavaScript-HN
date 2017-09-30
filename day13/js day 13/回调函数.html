@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				height: 400px;
+				width: 400px;
+				background: red;
+				position: fixed;
+				right: 0;
+				bottom: 0;
+			}
+			#btn{
+				height: 30px;
+				width: 30px;
+			}
+			#btn1{
+				height: 30px;
+				width: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--回调函数，简单来讲，就是执行完一个函数后，指令一个函数-->
+		<div class="box" id="box">
+			<button id="btn">X</button>
+			<button id="btn1">J</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementById("btn");
+		var btn1=document.getElementById("btn1");
+		var box=document.getElementById("box");
+		var timer=null;
+		var bottom=0;
+		var right=0;
+		btn.onclick=function(){
+			clearInterval(timer);
+			animate(fun);
+		}
+		btn1.onclick=function(){
+			clearInterval(timer);
+			animate();
+		}
+		function animate(f){
+			timer=setInterval(function(){
+				bottom--;
+				box.style.bottom=bottom+'px';
+				if(bottom<-200){
+					clearInterval(timer);
+					if(f){
+						f();
+					}else{
+						alert('后面没有函数啦')
+					}
+				}
+			},10);
+			
+		}
+		
+		function fun(){
+			timer=setInterval(function(){
+				right--;
+				box.style.right=right+'px';
+				if(right<=-400){
+					clearInterval(timer);
+					box.style.display='none';
+				}
+			},10);
+		}
+	</script>
+</html>

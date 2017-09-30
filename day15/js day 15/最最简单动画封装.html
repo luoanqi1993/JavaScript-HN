@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.red{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">asad</button>
+		<button id="btn1">从上往下</button>
+		<div class="red" id="red"></div>
+	</body>
+	<script type="text/javascript">
+		var red=document.getElementById("red");
+		var blue=document.getElementById("blue");
+		var btn=document.getElementById("btn");
+		var btn1=document.getElementById("btn1");
+		btn.onclick=function(){
+			animate(red,'left',300)
+		}
+/*		btn1.onclick=function(){
+			animate(red,'top',300)
+		}*/
+		
+		
+		
+		function animate(obj,attr,target){
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				var chushi=parseInt(getStyle(obj,attr));
+				console.log(getStyle(obj,attr))
+				var step=(target-chushi)/10;
+				obj.style[attr]=chushi+step+'px';
+				if(chushi==target){
+					clearInterval(obj.timer);
+				}
+			},80);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		function getStyle(obj,attr){
+			if(obj.currentStyle){
+				return obj.currentStyle[attr];
+			}else{
+				return window.getComputedStyle(obj,null)[attr];
+			}
+		}
+	</script>
+</html>

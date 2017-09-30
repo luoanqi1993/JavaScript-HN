@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var s = '12,4,31,4,35,6';
+			var arr=s.split(',');
+			for(var i=0;i<arr.length;i++){
+				var n = (s.split(""+arr[i]+"")).length - 1;
+//				console.log(n);
+				if(n>1){
+					console.log(arr[i]);
+				}
+			}
+		</script>
+	</body>
+
+</html>

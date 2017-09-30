@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		function Person(name,age){//构造函数，就是一个普通函数，为了和普通函数区分开来，我们通常（不是死要求）第一个字母大写
+			this.name=name;
+			this.age=age;
+			this.showName=function(){
+				alert('我的名字是'+name);
+			}
+			this.showAge=function(){
+				alert('我的年龄是'+age);
+			}
+		}
+		
+		
+		//实例化对象
+		var wzq = new Person('吴泽权',18);
+		var xhh = new Person('薛欢欢',18);
+/*		console.log(xhh.constructor==Person);
+		console.log(wzq.constructor==Person);*/
+		console.log(wzq.showName)
+		console.log(xhh.showName)
+		console.log(wzq.showName==xhh.showName)
+		//证明：他们来自同一个构造函数，但是并不是同一个对象，他们是不同的对象
+	</script>
+</html>

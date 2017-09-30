@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{ padding:0; margin:0; list-style:none; border:0;}
+			.all{
+			  width:395px;
+			  height:170px;
+			  padding:7px;
+			  border:1px solid #ccc;
+			  margin:100px auto;
+			  position:relative;
+			}
+			.screen{
+				width:395px;
+				height:170px;
+				/*overflow:hidden;*/ 
+				position:relative;
+			}
+			
+			.screen li{ width:395px; height:170px; overflow:hidden; float:left;}
+			.screen ul{ position:absolute; left:0; top:0px; width:2000px;}
+			.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+			.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+			.all ol li.current{ background:yellow;}
+		</style>
+
+		<script type="text/javascript">
+			function animate(obj, target) {
+				clearInterval(obj.timer); //先清除计时器
+				var speed = obj.offsetLeft < target ? 15 : -15; //判断是往右走还是往左走,如果当前offsetLeft比目标值小，就让他加，加到目标值那么大为止，如果比目标值大，就让他减，减到目标值为止；
+				obj.timer = setInterval(function() {
+					var result = target - obj.offsetLeft; //result最后永远不会超过15；
+					obj.style.left = obj.offsetLeft + speed + 'px'; //轮播图动起来
+					if(Math.abs(result) <= 15) { //如果差值小于等于步长，就证明到位置了
+						clearInterval(obj.timer);
+						obj.style.left = target + 'px';
+					}
+				}, 80);
+			}
+			window.onload = function() {
+				var box = document.getElementById("all"); //大盒子
+				var ul = document.getElementById("ul");
+				var ulis = ul.children; //ul下面的所有li
+				//接下来，对我们的页面元素进行操作
+				//因为我们要做无缝滚动，所以要克隆第一张丢进最后一张
+				ul.appendChild(ul.children[0].cloneNode(true)) //完美克隆ul的第一个子元素，放进最后
+				//创建小圆点
+				//创建ol和olis
+				var ol = document.createElement('ol'); //生成ol
+				box.appendChild(ol); //把ol添加进box里面
+				for(var i = 0; i < ulis.length - 1; i++) {
+					var li = document.createElement('li');
+					li.innerHTML = i + 1; //给li里面添加小文字，1、2、3、4
+					ol.appendChild(li); //把li添加进ol
+				}
+				ol.children[0].className = 'current';
+
+				//2、开始动画部分
+				var olis = ol.children;
+				for(var i = 0; i < olis.length; i++) {
+					olis[i].index = i; //给每个小圆点添加索引号；
+					olis[i].onmouseover = function() {
+						for(var j = 0; j < olis.length; j++) {
+							olis[j].className = '';
+						}
+						this.className = 'current';
+						animate(ul, -this.index * 395);
+						sq = key = this.index //让当前点击的索引控制轮播图
+					}
+				}
+				//3、让他自己动起来，那就添加计时器
+				var timer = null;
+				var key = 0; //表示当前正在显示、播放的张数
+				var sq = 0;//代表小圆点
+				timer = setInterval(autoplay, 3000);
+				function autoplay() {
+					key++; //先让播放张数++
+					if(key > ulis.length - 1) { //然后判断
+						ul.style.left = 0; //迅速返回
+						key = 1; //因为第五章就是第一张，所以这时候，播放完第五章就播放第二章
+					}
+					animate(ul, -key * 395); //执行动画函数
+					
+					sq++;
+					if(sq > olis.length - 1) {
+						sq = 0;
+					}
+					for(var i = 0; i< olis.length; i++) {
+						olis[i].className = ''; //先全部清除class
+					}
+					olis[sq].className = 'current'; //给当前的小圆点赋值class
+				}
+				box.onmouseover = function() {
+					clearInterval(timer);
+				};
+				box.onmouseout = function() {
+					timer = setInterval(autoplay, 3000);
+				}
+
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div id="all" class="all">
+			<div class="screen">
+				<ul id='ul'>
+					<li><img src="img/1.jpg" width="395" height="170" /></li>
+					<li><img src="img/2.jpg" width="395" height="170" /></li>
+					<li><img src="img/3.jpg" width="395" height="170" /></li>
+					<li><img src="img/4.jpg" width="395" height="170" /></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>

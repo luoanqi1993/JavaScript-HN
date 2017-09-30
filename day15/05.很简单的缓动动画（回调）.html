@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .pink{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            position: relative;
+            left: 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1" style="width: 120px;height: 40px">点我</button>
+<div class="pink" id="pink"></div>
+
+</body>
+<script>
+    var red = document.getElementById("red");
+    var pink = document.getElementById("pink");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+
+    function getStyle(obj,attr){
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+
+    function animate(obj,json,fun){
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function(){
+            var flag = true;
+            for(var attr in json){
+                var leader = parseInt(getStyle(obj,attr));
+                var speed = (json[attr] - leader)/10;
+                speed = speed >0 ? Math.ceil(speed):Math.floor(speed);
+                obj.style[attr] = leader + speed + "px";
+                if(leader!=json[attr]){
+                    flag = false;
+                }
+            }
+            if(flag){
+                clearInterval(obj.timer);
+                if(fun){
+                    fun();
+                }
+            }
+        },30)
+    }
+
+    btn1.onclick = function(){
+        animate(pink,{left:400,top:400,width:300,height:300,borderRadius:0},
+            function(){
+                animate(pink,{left:0,top:0,width:200,height:200,borderRadius:1000})
+            }
+        );
+    };
+
+</script>
+</html>

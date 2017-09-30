@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            position: relative;
+            margin:  100px auto;
+        }
+        #txt{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        #slc{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #dd{
+          width: 50px;
+            height: 50px;
+            background-color: pink;
+            position: absolute;
+            top: 50px;right: 16px;
+            text-align: center;line-height: 50px;
+            font-size: 20px;
+            color: white;
+         }
+        #p{
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <input type="text" id="txt"/>
+    <div id="dd">1月</div>
+    <select id="slc">
+        <option value="1">一月</option>
+        <option value="2">二月</option>
+        <option value="3">三月</option>
+        <option value="4">四月</option>
+        <option value="5">五月</option>
+        <option value="6">六月</option>
+        <option value="7">七月</option>
+        <option value="8">八月</option>
+        <option value="9">九月</option>
+        <option value="10">十月</option>
+        <option value="11">十一月</option>
+        <option value="12">十二月</option>
+    </select>
+    <p id="p">请输入你要输入的字</p>
+</div>
+</body>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+    $("slc").onchange = function(){
+        $("dd").innerHTML = this.value + "月";
+    };
+    $("txt").oninput = function(){
+        $("p").innerHTML = this.value;
+    }
+</script>
+</html>

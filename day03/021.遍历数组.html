@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var arr = [85,4684,4,88,26,94,1];
+
+//    var a = 0;
+//    for(var i=0;i<arr.length;i++){
+//        a += arr[i];
+//    }
+//    console.log(a/arr.length);
+
+
+//    for(var i=0;i<arr.length-1;i++){
+//        for(j=0;j<arr.length-1-i;j++){
+//            if(arr[j]>arr[j+1]){
+//                var temp=arr[j];
+//                arr[j]=arr[j+1];
+//                arr[j+1]=temp;
+//                console.log(arr);
+//            }
+//        }
+//    }
+
+//    for(var i=0;i<arr.length-1;i++){
+//        for(var j=0;j<arr.length-1-i;j++){
+//            if(arr[j]>arr[j+1]){
+//                var n = arr[j];
+//                arr[j] = arr[j+1];
+//                arr[j+1] = n;
+//            }
+//        }
+//    }
+//    console.log(arr);
+
+    var arr=[85,4684,4,88,26,94,1];
+//    var temp=null;//定义一个临时变量保存要插入元素的值
+//    for(var i=1;i<arr.length;i++){//从索引1开始遍历数组
+//        if(arr[i]<arr[i-1]){//只要插入的元素小于已经排好的最大元素时，就执行下面的操作；
+//            temp=arr[i];//把要插入的元素赋给临时变量；
+//            var p=i-1;//已经排好的素组的最后一项的索引为i-1;
+//            while(temp<arr[p]&&p>=0){//如果要插入的元素小于已经排好的元素；
+//                arr[p+1]=arr[p];//把大于要插入元素（temp）的已经排好的元素位置往后挪；
+//                p--;//从后往前遍历已经排好序的元素；
+//            }
+//            arr[p+1]=temp;
+//            console.log(arr);
+//        }
+//    }
+
+    var t = null;
+    for(var i = 1;i<arr.length;i++){
+        if(arr[i]<arr[i-1]){
+            t = arr[i];
+            var p = i-1;
+            while(t<arr[p]&&p>=0){
+                arr[p+1] = arr[p];
+                p--;
+            }
+            arr[p+1] = t;
+        }
+    }
+    console.log(arr);
+
+
+
+//    var j=11;
+//    do{
+//        console.log(j);
+//        j++;
+//    }while(j<10);
+//    while(j<10){
+//        console.log(j);
+//        j++;
+//    }
+
+
+</script>
+</body>
+</html>

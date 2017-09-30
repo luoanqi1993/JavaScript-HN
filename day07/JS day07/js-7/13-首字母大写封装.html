@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首字母大写封装版</title>
+</head>
+<body>
+	<script>
+
+	var str = 'we we we we'
+	var str1 = 'we ee we de'
+	var str2 = 'we se we se'
+	console.log(toUp(str))
+	console.log(toUp(str1))
+	console.log(toUp(str2))
+	/*不创建空数组，直接给arr重新赋值*/
+	function toUp(a){
+		var arr = a.split(" ");
+		for(var i =0;i<arr.length;i++){
+			/*不创建空数组，直接给arr重新赋值*/
+			arr[i] = arr[i].substr(0,1).toUpperCase()+arr[i].substr(1)
+		}
+		return arr.join(" ");
+	}
+
+
+
+	// var arr = str.split(" ");
+	// for(var i =0;i<arr.length;i++){
+	// 	arr[i] = arr[i].substr(0,1).toUpperCase()+arr[i].substr(1)
+	// }
+	// var str1 = arr.join(" ")
+	// console.log(str1)
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css"/>
+</head>
+<body>
+<div class="box" id="box">
+    <ul id="ul">
+        <li><img src="images/img_01.jpg" alt=""/></li>
+        <li><img src="images/img_02.jpg" alt=""/></li>
+        <li><img src="images/img_03.jpg" alt=""/></li>
+        <li><img src="images/img_04.jpg" alt=""/></li>
+        <li><img src="images/img_05.jpg" alt=""/></li>
+        <li><img src="images/img_01.jpg" alt=""/></li>
+    </ul>
+    <div id="icons"></div>
+    <!--<div class="btn">-->
+        <!--<button id="left"></button>-->
+        <!--<button id="right"></button>-->
+    <!--</div>-->
+</div>
+</body>
+<script>
+    var ul = document.getElementsByTagName("ul")[0];
+    var icons = document.getElementById("icons");
+//    var btn_left = document.getElementById("left");
+//    var btn_right = document.getElementById("right");
+    var timer = null;   //  定时器的值；
+    var count = 0 ;  //  图片的索引值；
+    var leader = 0, target;
+
+    for(var i = 1;i<ul.children.length;i++){   // 遍历添加焦点
+        var span = document.createElement("span");
+        icons.appendChild(span);
+    }
+    var spans = icons.children;
+    spans[0].setAttribute("class","ys");
+    setTimeout(fun,2000);
+    function fun(){
+        count++;
+        if(count>5){
+            count = 1;
+            leader = 0;
+            ul.style.left = "0px";
+        }
+        target = count * -800;
+        timer = setInterval(function(){
+            leader = leader + (target - leader) / 10;
+            ul.style.left = leader + "px";
+            if(Math.round(leader) <= count*-800){
+                clearInterval(timer);
+                setTimeout(fun,2000);
+            }
+        },1);
+        for(var k = 0; k < spans.length; k++) {//循环遍历每一个小圆点
+            spans[k].removeAttribute('class');//把所有的小圆点样式清除掉
+        }
+        count>4?spans[0].setAttribute('class', 'ys'):spans[count].setAttribute('class', 'ys');
+    }
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.s{
+				margin: 50px auto;
+				height: 300px;
+				width: 500px;
+				border: 1px solid red;
+				position: relative;
+			}
+			.rr{
+				height: 50px;
+				width: 50px;
+				background: red;
+				position: absolute;
+				transition: all 5s;
+			}
+			#a{
+				top: 50px;
+				left: 200px;
+			}
+			#s{
+				top: 100px;
+				left: 250px;
+				background: cyan;
+			}
+			#d{
+				top: 150px;
+				left: 200px;
+				background: yellow;
+			}
+			#f{
+				top: 100px;
+				left: 150px;
+				background: blue;
+			}
+			button{
+				height: 50px;
+				width: 100px;
+				position: absolute;
+			}
+			#l{
+				bottom: 0;
+				left: 0;
+			}
+			#r{
+				bottom: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="s" id="p">
+			<div id="a" class="rr"></div>
+			<div id="s" class="rr"></div>
+			<div id="d" class="rr"></div>
+			<div id="f" class="rr"></div>
+			<button id="l">←</button>
+			<button id="r">→</button>
+		</div>
+		
+	</body>
+	<script>
+		var box=document.getElementById("p");
+		var rr=document.getElementsByClassName('rr');
+		var a=[50,200];var s=[100,250];var d=[150,200];var f=[100,150];
+		var arr=[a,s,d,f];
+		var l=document.getElementById("l");
+		var r=document.getElementById("r");
+		l.onclick=function(){
+			var pop=arr.pop();
+			arr.unshift(pop);
+			for(var i=0;i<rr.length;i++){
+				rr[i].style.top=arr[i][0]+'px';
+				rr[i].style.left=arr[i][1]+'px';
+			}
+		};
+		r.onclick=function(){
+			var shift=arr.shift();
+			arr.push(shift);
+			for(var i=0;i<rr.length;i++){
+				rr[i].style.top=arr[i][0]+'px';
+				rr[i].style.left=arr[i][1]+'px';
+			}
+		}
+	</script>
+</html>

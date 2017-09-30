@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>页面2</div>
+		<button id="btn">打开页面3</button>
+		<button id="btn1">回退</button>
+		<button id="btn2">前进</button>
+	</body>
+	<script type="text/javascript">
+		var btn1=document.getElementById("btn1");
+		var btn2=document.getElementById("btn2");
+		btn.onclick=function(){
+			window.location='3.html';
+		}
+		btn1.onclick=function(){
+			history.back();
+		}
+		btn2.onclick=function(){
+			history.forward();
+		}
+	</script>
+</html>
